@@ -15,3 +15,55 @@
     border: 0;
     border-radius: 5px;
 }
+.hero_container {
+    height: 100vh;
+    position: relative;
+}
+.hero-element {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    border: 1px solid black;
+}
+.hero-element h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: auto;
+}
+.hero-element:nth-child(1) {
+    background: url("/backgrounds/mona-lisa.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(2) {
+    background: url("/backgrounds/wanderer.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(3) {
+    background: url("/backgrounds/starry-night.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(4) {
+    background: url("/backgrounds/nighthawks.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(5) {
+    background: url("/backgrounds/impression-sunrise.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(6) {
+    background: url("/backgrounds/girl-with-pearl.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.hero-element:nth-child(7) {
+    background: url("/backgrounds/claude-monet.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
