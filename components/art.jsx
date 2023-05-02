@@ -11,14 +11,15 @@ const Art = () => {
             tl.from(".art-element", {
                 x: "-100vw",
                 duration: 2,
-                stagger: 0.25,
+                stagger: 0.1,
                 rotation: -260,
                 scrollTrigger: {
                     trigger: ".art_container",
                     start: "top top",
-                    end: "2000px",
                     scrub: true,
                     pin: true,
+                    id: "for-art",
+                    markers: true,
                 },
             });
         });
