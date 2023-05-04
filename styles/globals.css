@@ -30,7 +30,7 @@
     flex-direction: column;
 } */
 .art_container {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     /* height: 100%; */
     background: #000;
@@ -116,9 +116,17 @@
     transform-origin: 100% 100%;
 }
 .layer_container {
+    display: flex;
     height: 100vh;
     position: relative;
-    background: green;
+    background: url("/backgrounds/david-michel.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.pin-text {
+    margin: auto;
+    font-size: 4rem;
+    color: #fff;
 }
 .layer {
     position: absolute;
@@ -128,11 +136,126 @@
     left: 0;
     opacity: 1;
     transform: translate(0, 0);
-}
-.layer:nth-child(1) {
-    background: red;
-    /* z-index: 2; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 .layer:nth-child(2) {
-    background: blue;
+    background: url("/backgrounds/girl-with-pearl-wide.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+    font-size: 4rem;
+    color: #fff;
+    /* z-index: 2; */
+}
+.layer:nth-child(3) {
+    background: url("/backgrounds/the-kiss.jpg");
+    background-position: 50% 30%;
+    color: #fff;
+    font-size: 4rem;
+    background-size: cover;
+}
+.layer-items,
+.boxes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.box {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 2rem; */
+    color: #e55151;
+    /* background-color: #000; */
+}
+.info_container {
+    height: 100vh;
+    display: flex;
+}
+.slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 50%;
+}
+.slider-art {
+    position: relative;
+    height: 60%;
+}
+.slider .art-element {
+    top: 50%;
+    left: 50%;
+    justify-content: end;
+    align-items: end;
+    transform: translate(-50%, -50%);
+    transform-origin: unset;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0, 0.74, 0.89, 0.69);
+}
+.slider .art-element.active {
+    opacity: 1;
+}
+.slider .art-element:nth-child(1) {
+    z-index: 7;
+}
+.slider .art-element:nth-child(2) {
+    z-index: 6;
+}
+.slider .art-element:nth-child(3) {
+    z-index: 5;
+}
+.slider .art-element:nth-child(4) {
+    z-index: 4;
+}
+.slider .art-element:nth-child(5) {
+    z-index: 3;
+}
+.slider .art-element:nth-child(6) {
+    z-index: 2;
+}
+.slider .art-element:nth-child(7) {
+    z-index: 1;
+}
+.dots {
+    display: flex;
+    gap: 0.5em;
+    align-self: center;
+}
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #e9e8e8;
+}
+.dot.active {
+    background: #b6b5b5;
+}
+.info-more {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: #fff; */
+    /* background: #000; */
+}
+.info-more button {
+    padding: 1em 1.5em;
+    align-self: start;
+    background: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
+.info-more button:active {
+    transform: scale(1.07);
+    background: #272727;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1rem;
 }

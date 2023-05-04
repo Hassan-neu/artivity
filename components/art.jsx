@@ -16,10 +16,9 @@ const Art = () => {
                 scrollTrigger: {
                     trigger: ".art_container",
                     start: "top top",
+                    end: "+=2000",
                     scrub: true,
                     pin: true,
-                    id: "for-art",
-                    markers: true,
                 },
             });
         });
