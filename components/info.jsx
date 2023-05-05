@@ -7,10 +7,7 @@ const Info = () => {
     useEffect(() => {
         const sliderNodes = slider.current.childNodes;
         const dotNodes = dots.current.childNodes;
-        [...sliderNodes][0].classList.add("active");
-        [...dotNodes][0].classList.add("active");
         if (indx >= 7) return setIndx(0);
-        console.log(sliderNodes);
         [...sliderNodes].map(
             (slider) =>
                 slider.classList.contains("active") &&
