@@ -5,6 +5,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+    color: #000;
+}
 .layout_wrapper {
     overflow: hidden;
 }
@@ -309,14 +313,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: max-content;
-    gap: 0.8rem;
+    gap: 1rem;
+    row-gap: 1.5rem;
 }
 .product-card {
     display: flex;
-    height: 100%;
-    justify-content: space-between;
-    gap: 0.5rem;
     flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
 }
@@ -344,8 +348,12 @@
 }
 .product-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.5rem;
     font-weight: 800;
+}
+.btn-add {
+    margin-top: auto;
 }
 .btn-add button {
     padding: 0.5em 1em;

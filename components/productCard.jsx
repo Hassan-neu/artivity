@@ -28,7 +28,9 @@ const ProductCard = ({ product }) => {
                 </div>
                 <div className="product-name">{name}</div>
                 <div className="btn-add">
-                    <button type="button">Add to cart</button>
+                    <button type="button" onClick={() => console.log(slug)}>
+                        Add to cart
+                    </button>
                 </div>
             </div>
         </Link>
