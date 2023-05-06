@@ -1,1 +1,2 @@
-export const schemaTypes = []
+import products from './products'
+export const schemaTypes = [products]

@@ -241,7 +241,40 @@
     justify-content: center;
     padding: 1.5rem 1rem;
 }
-
+.market_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.banner_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+.market-banner {
+    background: url("/backgrounds/van-gogh.jpg");
+    background-position: 50% 25%;
+    position: absolute;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+    height: 300px;
+    width: 100%;
+}
+.banner_container h2 {
+    text-transform: uppercase;
+    /* color: #fff; */
+}
+.banner-button button {
+    background: #000;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+    padding: 0.9em 2em;
+}
 .market-action form {
     display: flex;
     justify-content: space-between;
@@ -268,4 +301,50 @@
 .search-action input::placeholder {
     color: #000;
     text-transform: uppercase;
+}
+.products_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 0.8rem;
+}
+.product-card {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+.product-image {
+    position: relative;
+}
+.product-image img {
+    min-width: 100%;
+    min-height: auto;
+    object-fit: cover;
+    display: block;
+}
+.like-icon {
+    position: absolute;
+    top: 10%;
+    left: 95%;
+    transform: translate(-95%, -10%);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-details {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-add button {
+    padding: 0.5em 1em;
+    border-radius: 15px;
+    background: transparent;
+    border: 1px solid #b6b5b5;
 }
