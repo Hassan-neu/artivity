@@ -8,7 +8,7 @@
 .layout_wrapper {
     overflow: hidden;
 }
-.layout_container:has(.market_wrapper) {
+.layout_container:has(.market_wrapper, .artwrk_container) {
     padding: 0 4rem;
 }
 .navbar {
@@ -22,6 +22,9 @@
     color: #fff;
     border: 0;
     border-radius: 5px;
+}
+.nav-sign button:active {
+    transform: scale(0.9);
 }
 /* .layer_wrapper,
 .art_wrapper {
@@ -357,4 +360,60 @@
 }
 .btn-add button:active {
     transform: scale(0.9);
+}
+.artwrk_container {
+    display: flex;
+    gap: 2.5rem;
+}
+.artwrk-image img {
+    object-fit: cover;
+    object-position: center;
+}
+.artwrk-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.artwrk-profile,
+.artwrk-order--optn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.artwrk-name {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.artwrk-artiste {
+    font-weight: 800;
+}
+.artwrk-descr {
+    flex: 0 1 50%;
+}
+.qty-ctrl {
+    align-self: start;
+    border: 1px solid black;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+}
+.qty-ctrl,
+.order-actn {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.order-actn button {
+    padding: 0.8em 2.5em;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.order-actn button:active {
+    transform: scale(0.9);
+}
+.order-actn button:nth-child(1) {
+    background: #000;
+    color: #fff;
+}
+.order-actn button:nth-child(2) {
+    background: transparent;
 }
