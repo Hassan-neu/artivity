@@ -3,7 +3,8 @@ import React from "react";
 import SearchAction from "@/components/searchAction";
 import Products from "@/components/products";
 import MarkertBanner from "@/components/markertBanner";
-const Market = () => {
+import { client } from "@/libs/client";
+const Market = ({ products }) => {
     return (
         <>
             <Head>
@@ -13,7 +14,7 @@ const Market = () => {
                 <div className="market_container">
                     <MarkertBanner />
                     <SearchAction />
-                    <Products />
+                    <Products products={products} />
                 </div>
             </div>
         </>
@@ -21,3 +22,14 @@ const Market = () => {
 };
 
 export default Market;
+
+export const getServerSideProps = async () => {
+    const query = `*[_type=='products']`;
+
+    const products = await client.fetch(query);
+    return {
+        props: {
+            products,
+        },
+    };
+};
