@@ -371,16 +371,33 @@ a {
 }
 .artwrk_container {
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.artwrk-top {
+    display: flex;
     gap: 2.5rem;
+    justify-content: center;
+}
+.artwrk-btm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.artwrk-btm h4 {
+    text-transform: uppercase;
 }
 .artwrk-image img {
     object-fit: cover;
     object-position: center;
+    display: block;
 }
 .artwrk-details {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex: 0 1 50%;
 }
 .artwrk-profile,
 .artwrk-order--optn {
@@ -396,7 +413,7 @@ a {
     font-weight: 800;
 }
 .artwrk-descr {
-    flex: 0 1 50%;
+    text-align: justify;
 }
 .qty-ctrl {
     align-self: start;
@@ -415,6 +432,11 @@ a {
     border-radius: 20px;
     border: 1px solid black;
 }
+.dec button,
+.inc button {
+    background: transparent;
+    border: 0;
+}
 .order-actn button:active {
     transform: scale(0.9);
 }
@@ -424,4 +446,45 @@ a {
 }
 .order-actn button:nth-child(2) {
     background: transparent;
+}
+.delivery-terms {
+    align-self: start;
+    border-radius: 5px;
+    border: 1px solid #b6b5b5;
+}
+.delivery-free {
+    border-bottom: 1px solid #b6b5b5;
+}
+.delivery-free,
+.delivery-return {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1em;
+}
+.artwork-byartiste {
+    display: flex;
+    gap: 1rem;
+}
+.artcrd-card {
+    display: flex;
+    width: 250px;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #b6b5b5;
+}
+.artcrd-image img {
+    width: 100%;
+    min-height: auto;
+    object-fit: cover;
+    display: block;
+}
+.artcrd-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5em;
+    font-weight: 800;
 }
