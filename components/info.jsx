@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 const Info = () => {
     const slider = useRef();
@@ -76,7 +77,9 @@ const Info = () => {
                         Discover the allure of history with our timeless antique
                         art collection.
                     </h2>
-                    <button type="button"> START SHOPPING</button>
+                    <Link href="/market">
+                        <button type="button"> START SHOPPING</button>
+                    </Link>
                 </div>
             </div>
         </div>

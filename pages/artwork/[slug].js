@@ -11,8 +11,8 @@ import {
 } from "react-icons/ri";
 import { useStateContext } from "@/hooks/stateContext";
 const ArtPage = ({ product, moreByArtiste }) => {
-    const { qty, incQty, decQty } = useStateContext();
-    const { image, name, artiste, description, price } = product;
+    const { qty, incQty, decQty, addToCart } = useStateContext();
+    const { image, name, artiste, description, price, _id } = product;
 
     return (
         <div className="artwrk_wrapper">
@@ -31,10 +31,10 @@ const ArtPage = ({ product, moreByArtiste }) => {
                             <div className="artwrk-name">{name}</div>
                             <div className="artwrk-artiste">{artiste}</div>
                             <div className="artwrk-rating">
-                                <AiFillStar />
-                                <AiFillStar />
-                                <AiFillStar />
-                                <AiFillStar />
+                                <AiFillStar fill="#F0A500" />
+                                <AiFillStar fill="#F0A500" />
+                                <AiFillStar fill="#F0A500" />
+                                <AiFillStar fill="#F0A500" />
                             </div>
                             <div className="artwrk-descr">{description}</div>
                         </div>
@@ -48,28 +48,52 @@ const ArtPage = ({ product, moreByArtiste }) => {
                         <div className="artwrk-order--optn">
                             <div className="qty-ctrl">
                                 <div className="dec">
-                                    <button type="button" onClick={decQty}>
-                                        <RiSubtractLine />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            decQty();
+                                        }}
+                                    >
+                                        <RiSubtractLine fill="#D06224" />
                                     </button>
                                 </div>
                                 <div className="order-qty">
                                     <p>{qty}</p>
                                 </div>
                                 <div className="inc">
-                                    <button type="button" onClick={incQty}>
-                                        <RiAddLine />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            incQty();
+                                        }}
+                                    >
+                                        <RiAddLine fill="#D06224" />
                                     </button>
                                 </div>
                             </div>
                             <div className="order-actn">
-                                <button type="button">Add to Cart</button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        addToCart(
+                                            image,
+                                            artiste,
+                                            name,
+                                            price,
+                                            qty,
+                                            _id
+                                        );
+                                    }}
+                                >
+                                    Add to Cart
+                                </button>
                                 <button type="button">Buy Now</button>
                             </div>
                         </div>
                         <div className="delivery-terms">
                             <div className="delivery-free">
                                 <div className="icn">
-                                    <RiTruckLine />
+                                    <RiTruckLine fill="#d06224" />
                                 </div>
                                 <div className="delivery-det">
                                     <h4>Free Delivery</h4>
@@ -78,7 +102,7 @@ const ArtPage = ({ product, moreByArtiste }) => {
                             </div>
                             <div className="delivery-return">
                                 <div className="icn">
-                                    <RiClipboardLine />
+                                    <RiClipboardLine fill="#d06224" />
                                 </div>
                                 <div className="delivery-det">
                                     <h4>Return Delivery</h4>

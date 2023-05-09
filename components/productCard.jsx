@@ -3,8 +3,10 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Image from "next/image";
 import { urlFor } from "@/libs/client";
 import Link from "next/link";
+import { useStateContext } from "@/hooks/stateContext";
 const ProductCard = ({ product }) => {
-    const { artiste, image, name, price, slug } = product;
+    const { addToCart, setQty, setTotalQty } = useStateContext();
+    const { artiste, image, name, price, year, slug, _id } = product;
     return (
         <Link href={`/artwork/${slug.current}`}>
             <div className="product-card">
@@ -16,19 +18,27 @@ const ProductCard = ({ product }) => {
                         alt="monalisa"
                     />
                     <div className="like-icon">
-                        <AiOutlineHeart fill="#ff" />
+                        <AiOutlineHeart fill="#fff" />
                     </div>
                 </div>
                 <div className="product-details">
-                    <div className="product-artiste">{artiste}</div>
+                    <div className="product-name">
+                        {name} ({year})
+                    </div>
                     <div className="product-price">
                         $
                         {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </div>
                 </div>
-                <div className="product-name">{name}</div>
+                <div className="product-artiste">{artiste}</div>
+
                 <div className="btn-add">
-                    <button type="button" onClick={() => console.log(slug)}>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            addToCart(image, artiste, name, price, 1, _id);
+                        }}
+                    >
                         Add to cart
                     </button>
                 </div>

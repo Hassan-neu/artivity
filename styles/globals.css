@@ -12,17 +12,18 @@ a {
 .layout_wrapper {
     overflow: hidden;
 }
-.layout_container:has(.market_wrapper, .artwrk_container) {
+.layout_container:has(.market_wrapper, .artwrk_container, .cart_wrapper) {
     padding: 0 4rem;
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 1rem;
+    color: #d06224;
 }
 .nav-sign button {
     padding: 0.8em 1.5em;
-    background: #000;
+    background: #d06224;
     color: #fff;
     border: 0;
     border-radius: 5px;
@@ -43,10 +44,10 @@ a {
     min-height: 100vh;
     position: relative;
     /* height: 100%; */
-    background: #000;
+    background: #fff;
 }
 .art_container h2 {
-    color: #fff;
+    color: #d06224;
     font-size: 10rem;
     text-align: center;
 }
@@ -178,12 +179,13 @@ a {
     justify-content: center;
     align-items: center;
     /* font-size: 2rem; */
-    color: #e55151;
+    color: #d06224;
     /* background-color: #000; */
 }
 .info_container {
     height: 100vh;
     display: flex;
+    background: #d06224;
 }
 .slider {
     display: flex;
@@ -220,7 +222,7 @@ a {
     border: 2px solid #e9e8e8;
 }
 .dot.active {
-    background: #b6b5b5;
+    background: #fff;
 }
 .info-more {
     font-size: 2rem;
@@ -228,25 +230,27 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     /* color: #fff; */
     /* background: #000; */
 }
 .info-more button {
     padding: 1em 1.5em;
     align-self: start;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #d06224;
     border: 0;
     border-radius: 5px;
 }
 .info-more button:active {
-    transform: scale(1.07);
-    background: #272727;
+    transform: scale(0.9);
+    /* background: #272727; */
 }
 .footer {
     display: flex;
     justify-content: center;
     padding: 1.5rem 1rem;
+    color: #d06224;
 }
 .market_container {
     display: flex;
@@ -273,10 +277,10 @@ a {
 }
 .banner_container h2 {
     text-transform: uppercase;
-    /* color: #fff; */
+    color: #fff;
 }
 .banner-button button {
-    background: #000;
+    background: #d06224;
     color: #fff;
     border-radius: 20px;
     border: 0;
@@ -341,7 +345,7 @@ a {
     border-radius: 50%;
     width: 24px;
     height: 24px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(208, 98, 36, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -350,6 +354,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    color: #d06224;
     font-weight: 800;
 }
 .btn-add {
@@ -358,13 +363,10 @@ a {
 .btn-add button {
     padding: 0.5em 1em;
     border-radius: 15px;
-    background: transparent;
+    background: #d06224;
     border: 1px solid #b6b5b5;
-}
-.btn-add button:hover {
-    background: #000;
     color: #fff;
-    border: 1px solid #000;
+    border: 1px solid #d06224;
 }
 .btn-add button:active {
     transform: scale(0.9);
@@ -408,6 +410,7 @@ a {
 .artwrk-name {
     font-size: 2rem;
     font-weight: 800;
+    color: #d06224;
 }
 .artwrk-artiste {
     font-weight: 800;
@@ -415,11 +418,15 @@ a {
 .artwrk-descr {
     text-align: justify;
 }
+.artwrk-price {
+    font-weight: 800;
+}
 .qty-ctrl {
     align-self: start;
-    border: 1px solid black;
+    border: 1px solid #d06224;
     padding: 0.5em 1em;
     border-radius: 20px;
+    color: #d06224;
 }
 .qty-ctrl,
 .order-actn {
@@ -430,7 +437,7 @@ a {
 .order-actn button {
     padding: 0.8em 2.5em;
     border-radius: 20px;
-    border: 1px solid black;
+    border: 1px solid #d06224;
 }
 .dec button,
 .inc button {
@@ -441,19 +448,20 @@ a {
     transform: scale(0.9);
 }
 .order-actn button:nth-child(1) {
-    background: #000;
+    background: #d06224;
     color: #fff;
 }
 .order-actn button:nth-child(2) {
+    color: #d06224;
     background: transparent;
 }
 .delivery-terms {
     align-self: start;
     border-radius: 5px;
-    border: 1px solid #b6b5b5;
+    border: 1px solid #d06224;
 }
 .delivery-free {
-    border-bottom: 1px solid #b6b5b5;
+    border-bottom: 1px solid #d06224;
 }
 .delivery-free,
 .delivery-return {
@@ -487,4 +495,89 @@ a {
     gap: 0.5rem;
     padding: 0.5em;
     font-weight: 800;
+}
+.cart_container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+}
+.cart-artwrks,
+.cart-subtotal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.8em 1.5em;
+}
+.cart-subtotal {
+    padding: 0.8em 0.8em;
+    height: max-content;
+}
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8em 1em 0em;
+    gap: 0.5rem;
+}
+.cart-item:nth-child(n + 3) {
+    border-top: 1px solid #b6b5b5;
+}
+.cart-products {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+.art-dets {
+    display: flex;
+    gap: 1.5rem;
+}
+.artwrk-total {
+    font-weight: 800;
+}
+.cart-ctrl {
+    display: flex;
+}
+.cart-rmv {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-transform: uppercase;
+}
+.cart-optn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.cart-optn > button {
+    background: none;
+    padding: 0.5em 1em;
+    border: 0;
+}
+.cart-ctrl {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border: 1px solid black;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+}
+.cart-dec button,
+.cart-inc button {
+    background: transparent;
+    border: 0;
+}
+
+.checkout-dets {
+    display: flex;
+    justify-content: space-between;
+}
+.checkout-btn button {
+    background: transparent;
+    width: 100%;
+    padding: 0.8em 1em;
+    border: 1px solid black;
+    border-radius: 5px;
 }
