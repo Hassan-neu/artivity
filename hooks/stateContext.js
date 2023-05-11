@@ -1,8 +1,7 @@
-import { previewData } from "next/dist/client/components/headers";
 import React, { useContext, createContext, useState } from "react";
 const Context = createContext();
 export const StateContext = ({ children }) => {
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
     const [totalQty, setTotalQty] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -16,12 +15,17 @@ export const StateContext = ({ children }) => {
         const checkItem = cartItems.find((item) => item.id === id);
 
         if (checkItem) {
-            const newCart = cartItems.filter((item) => item.id !== id);
             return (
-                setCartItems([...newCart, { ...checkItem, itmQty: qty }]),
+                setCartItems((prevCart) =>
+                    prevCart.map((item) => {
+                        if (item.id === id) {
+                            return { ...item, itmQty: qty };
+                        }
+                        return item;
+                    })
+                ),
                 setTotalQty(
-                    (prevTotal) =>
-                        qty + ((prevTotal ? prevTotal : 1) - checkItem.itmQty)
+                    (prevTotal) => qty + (prevTotal - checkItem.itmQty)
                 ),
                 setTotalPrice(
                     (prevPrice) =>
@@ -59,16 +63,18 @@ export const StateContext = ({ children }) => {
             setTotalPrice((prevPrice) => prevPrice + toToggle.price);
         }
         if (type === "dec") {
-            setCartItems((prevCart) =>
-                prevCart.map((item) => {
-                    if (item.id === id) {
-                        return { ...item, itmQty: toToggle.itmQty - 1 };
-                    }
-                    return item;
-                })
-            );
-            setTotalQty((prevTotal) => prevTotal - 1);
-            setTotalPrice((prevPrice) => prevPrice - toToggle.price);
+            if (toToggle.itmQty > 1) {
+                setCartItems((prevCart) =>
+                    prevCart.map((item) => {
+                        if (item.id === id) {
+                            return { ...item, itmQty: toToggle.itmQty - 1 };
+                        }
+                        return item;
+                    })
+                );
+                setTotalQty((prevTotal) => prevTotal - 1);
+                setTotalPrice((prevPrice) => prevPrice - toToggle.price);
+            }
         }
     };
     return (

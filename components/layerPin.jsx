@@ -55,7 +55,9 @@ const LayerPin = () => {
                     <h2>ART IMITATES LIFE</h2>
                 </div>
                 <div className="layer">
-                    <h2>ART IS YOU</h2>
+                    <div className="pin-text">
+                        <h2>ART IS YOU</h2>
+                    </div>
                 </div>
                 <div className="layer">
                     <div className="layer-items">

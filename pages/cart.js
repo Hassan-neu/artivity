@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "@/components/cartItem";
 import { useStateContext } from "@/hooks/stateContext";
+import { AiOutlineShopping } from "react-icons/ai";
 const Cart = () => {
     const { cartItems, totalQty, totalPrice } = useStateContext();
     return (
@@ -10,6 +11,7 @@ const Cart = () => {
                     <div className="cart-count">
                         <h3>Cart ({totalQty})</h3>
                     </div>
+                    {cartItems.length < 1 && <AiOutlineShopping size={150} />}
                     {cartItems.map((item) => (
                         <CartItem key={item.id} item={item} />
                     ))}
@@ -28,7 +30,13 @@ const Cart = () => {
                         </h3>
                     </div>
                     <div className="checkout-btn">
-                        <button type="button">CHECKOUT (30000)</button>
+                        <button type="button">
+                            CHECKOUT ( $
+                            {totalPrice
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            )
+                        </button>
                     </div>
                 </div>
             </div>
