@@ -507,13 +507,22 @@ a {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid black;
+    border: 1px solid #d06224;
     border-radius: 5px;
     padding: 0.8em 1.5em;
 }
+.cart-count {
+    border-bottom: 1px solid #d06224;
+    padding: 0.8em;
+}
 .cart-subtotal {
     padding: 0.8em 0.8em;
+    gap: 1.3rem;
     height: max-content;
+}
+.cart-subtotal div:nth-child(-n + 2) {
+    padding: 0.4em;
+    border-bottom: 1px solid #b6b5b5;
 }
 .cart-item {
     display: flex;
@@ -534,7 +543,9 @@ a {
     gap: 1.5rem;
 }
 .artwrk-total {
+    font-size: 1.3rem;
     font-weight: 800;
+    color: #d06224;
 }
 .cart-ctrl {
     display: flex;
@@ -555,14 +566,16 @@ a {
     background: none;
     padding: 0.5em 1em;
     border: 0;
+    color: #d06224;
 }
 .cart-ctrl {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #d06224;
     padding: 0.5em 1em;
     border-radius: 20px;
+    color: #d06224;
 }
 .cart-dec button,
 .cart-inc button {
@@ -574,10 +587,14 @@ a {
     display: flex;
     justify-content: space-between;
 }
+.checkout-dets h3 {
+    color: #d06224;
+}
 .checkout-btn button {
-    background: transparent;
+    background: #d06224;
     width: 100%;
     padding: 0.8em 1em;
-    border: 1px solid black;
+    border: 1px solid #d06224;
+    color: #fff;
     border-radius: 5px;
 }

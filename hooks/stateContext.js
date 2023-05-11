@@ -1,9 +1,11 @@
+import { previewData } from "next/dist/client/components/headers";
 import React, { useContext, createContext, useState } from "react";
 const Context = createContext();
 export const StateContext = ({ children }) => {
     const [qty, setQty] = useState(0);
     const [totalQty, setTotalQty] = useState(0);
     const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     };
@@ -20,6 +22,10 @@ export const StateContext = ({ children }) => {
                 setTotalQty(
                     (prevTotal) =>
                         qty + ((prevTotal ? prevTotal : 1) - checkItem.itmQty)
+                ),
+                setTotalPrice(
+                    (prevPrice) =>
+                        prevPrice - checkItem.price * (checkItem.itmQty - qty)
                 )
             );
         }
@@ -27,6 +33,43 @@ export const StateContext = ({ children }) => {
         setQty(1);
         setCartItems((prevCart) => [...prevCart, itemsToAdd]);
         setTotalQty((prevTotal) => prevTotal + qty);
+        setTotalPrice((prevPrice) => prevPrice + itmQty * price);
+    };
+    const toRemove = (id) => {
+        const toPurge = cartItems.find((item) => item.id === id);
+        const newCartItems = cartItems.filter((items) => items.id !== id);
+        setCartItems(newCartItems);
+        setTotalQty((prevTotal) => prevTotal - toPurge.itmQty);
+        setTotalPrice(
+            (prevPrice) => prevPrice - toPurge.itmQty * toPurge.price
+        );
+    };
+    const cartQtyToggle = (id, type) => {
+        const toToggle = cartItems.find((item) => item.id === id);
+        if (type === "inc") {
+            setCartItems((prevCart) =>
+                prevCart.map((item) => {
+                    if (item.id === id) {
+                        return { ...item, itmQty: toToggle.itmQty + 1 };
+                    }
+                    return item;
+                })
+            );
+            setTotalQty((prevTotal) => prevTotal + 1);
+            setTotalPrice((prevPrice) => prevPrice + toToggle.price);
+        }
+        if (type === "dec") {
+            setCartItems((prevCart) =>
+                prevCart.map((item) => {
+                    if (item.id === id) {
+                        return { ...item, itmQty: toToggle.itmQty - 1 };
+                    }
+                    return item;
+                })
+            );
+            setTotalQty((prevTotal) => prevTotal - 1);
+            setTotalPrice((prevPrice) => prevPrice - toToggle.price);
+        }
     };
     return (
         <Context.Provider
@@ -39,6 +82,9 @@ export const StateContext = ({ children }) => {
                 setQty,
                 setTotalQty,
                 totalQty,
+                totalPrice,
+                toRemove,
+                cartQtyToggle,
             }}
         >
             {children}
