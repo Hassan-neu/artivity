@@ -12,7 +12,12 @@ a {
 .layout_wrapper {
     overflow: hidden;
 }
-.layout_container:has(.market_wrapper, .artwrk_container, .cart_wrapper) {
+.layout_container:has(
+        .market_wrapper,
+        .artwrk_container,
+        .cart_wrapper,
+        .wishlist_container
+    ) {
     padding: 0 4rem;
 }
 .navbar {
@@ -367,6 +372,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: contrast(50px);
+}
+.like-icon:active {
+    transform: translate(-95%, -10%) scale(0.9);
 }
 .product-details {
     display: flex;
@@ -529,7 +538,8 @@ a {
     border-radius: 5px;
     padding: 0.8em 1.5em;
 }
-.cart-count {
+.cart-count,
+.wishlist-count {
     border-bottom: 1px solid #d06224;
     padding: 0.8em;
 }
@@ -548,7 +558,7 @@ a {
     padding: 0.8em 1em 0em;
     gap: 0.5rem;
 }
-.cart-item:nth-child(n + 3) {
+:is(.cart-item, .list-item):nth-child(n + 3) {
     border-top: 1px solid #b6b5b5;
 }
 .cart-products {
@@ -619,20 +629,76 @@ a {
 .checkout-btn button:active {
     transform: scale(0.9);
 }
-
+.wishlist_container {
+    display: flex;
+    flex-direction: column;
+}
+.wishlist-artwrks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid #d06224;
+    border-radius: 5px;
+    padding: 0.8em 1.5em;
+}
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em 1em 0.8em;
+}
+.list-dets {
+    display: flex;
+    gap: 1.5rem;
+}
+.list-optn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.list-rmv button {
+    background: #d06224;
+    width: 100%;
+    padding: 0.5em 0.7em;
+    border: 1px solid #d06224;
+    color: #fff;
+    border-radius: 5px;
+}
+.list-buy button {
+    background: transparent;
+    width: 100%;
+    padding: 0.5em 0.7em;
+    border: 1px solid #d06224;
+    color: #d06224;
+    border-radius: 5px;
+}
+.list-optn button:active {
+    transform: scale(0.9);
+}
 @media screen and (max-width: 480px) {
+    .nav-sign svg {
+        width: 20px;
+        height: 20px;
+    }
+    .nav-cart {
+        display: none;
+    }
+
     .art_container h2 {
-        margin-top: 3rem;
+        margin-top: 3rem; /**/
         font-size: 3rem;
     }
     .info_container {
         padding: 1em 1.5em 2.5em 1.5em;
         flex-direction: column;
         gap: 1.5rem;
+        align-items: center; /*?*/
     }
     .slider {
         justify-content: start;
         gap: 0.5rem;
+        flex-basis: 60%;
+        width: 100%; /*?*/
     }
     .slider-art {
         height: 100%;
@@ -642,7 +708,7 @@ a {
     }
     .info-more {
         text-align: justify;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .pin-text {
         font-size: 1.5rem;

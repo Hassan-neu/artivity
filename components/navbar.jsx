@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { RiShoppingCart2Line } from "react-icons/ri";
+import { FaRegUser } from "react-icons/fa";
 import { useStateContext } from "@/hooks/stateContext";
 const Navbar = () => {
     const { totalQty } = useStateContext();
@@ -12,11 +13,13 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="nav-sign">
-                <button type="button">SIGN IN</button>
+                {/* <button type="button">SIGN IN</button> */}
+                <Link href="/wishlist">Saved items</Link>
+                <FaRegUser size={30} />
             </div>
             <div className="nav-cart">
                 <Link href="/cart">
-                    <RiShoppingCart2Line size={40} />
+                    <RiShoppingCart2Line size={30} />
                 </Link>
                 <span className="item-qty">{totalQty}</span>
             </div>

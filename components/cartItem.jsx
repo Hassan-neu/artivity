@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
                         src={urlFor(image[0]).url()}
                         width={100}
                         height={100}
-                        alt=""
+                        alt={name}
                     />
                     <div className="artwrk-title">
                         <h4>{name}</h4>

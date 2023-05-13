@@ -5,6 +5,7 @@ export const StateContext = ({ children }) => {
     const [totalQty, setTotalQty] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [wishList, setWishList] = useState([]);
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     };
@@ -77,6 +78,16 @@ export const StateContext = ({ children }) => {
             }
         }
     };
+    const toSaveArts = (image, artiste, name, price, id, slug) => {
+        const itemsToAdd = { image, artiste, name, price, id, slug };
+        const checkItem = wishList.find((list) => list.id === id);
+        if (checkItem) return;
+        setWishList((prevList) => [...prevList, itemsToAdd]);
+    };
+    const toRemoveArt = (id) => {
+        const newList = wishList.filter((list) => list.id !== id);
+        setWishList(newList);
+    };
     return (
         <Context.Provider
             value={{
@@ -91,6 +102,9 @@ export const StateContext = ({ children }) => {
                 totalPrice,
                 toRemove,
                 cartQtyToggle,
+                wishList,
+                toSaveArts,
+                toRemoveArt,
             }}
         >
             {children}
