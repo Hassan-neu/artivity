@@ -11,7 +11,7 @@ const Cart = () => {
                     <div className="cart-count">
                         <h3>Cart ({totalQty})</h3>
                     </div>
-                    {cartItems.length < 1 && <AiOutlineShopping size={150} />}
+                    {cartItems.length < 1 && <h2>Your Cart is Empty</h2>}
                     {cartItems.map((item) => (
                         <CartItem key={item.id} item={item} />
                     ))}

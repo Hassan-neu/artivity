@@ -14,7 +14,7 @@ const Navbar = () => {
             </div>
             <div className="nav-sign">
                 {/* <button type="button">SIGN IN</button> */}
-                <Link href="/wishlist">Saved items</Link>
+                <Link href="/user/wishlist">Saved items</Link>
                 <FaRegUser size={30} />
             </div>
             <div className="nav-cart">
