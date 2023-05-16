@@ -1,7 +1,6 @@
 import React from "react";
 import CartItem from "@/components/cartItem";
 import { useStateContext } from "@/hooks/stateContext";
-import { AiOutlineShopping } from "react-icons/ai";
 const Cart = () => {
     const { cartItems, totalQty, totalPrice } = useStateContext();
     return (

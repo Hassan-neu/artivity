@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
 const Context = createContext();
 export const StateContext = ({ children }) => {
     const [qty, setQty] = useState(1);

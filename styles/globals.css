@@ -6,6 +6,10 @@
     box-sizing: border-box;
     user-select: none;
 }
+:root {
+    --primaryColor: #d06224;
+    --secondaryColor: #6f6f6f;
+}
 a {
     text-decoration: none;
     color: #000;
@@ -31,71 +35,104 @@ button:active {
     align-items: center;
     gap: 4rem;
     padding: 1.5rem 2rem;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .nav-logo {
     margin: 0 auto 0 0;
 }
-.nav-logo a {
-    color: #d06224;
+.nav-logo a,
+.nav-sign a {
+    color: var(--primaryColor);
 }
 .nav-sign button,
 .signout-btn button {
     padding: 0.7em 1.5em;
-    background: #d06224;
+    background: var(--primaryColor);
     color: #fff;
     border: 0;
     border-radius: 5px;
 }
-/* .nav-sign button:active {
-    transform: scale(0.9);
-} */
 .nav-cart {
     position: relative;
 }
 .nav-cart a {
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .login_container,
 .register_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 80vh;
 }
 .login,
 .register {
-    width: 400px;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: 0px 0px 6px #d06224;
-    /* border: 1px solid #d06224; */
+    border: 1px solid var(--primaryColor);
     border-radius: 10px;
-    padding: 0.7em 1.5em;
+    overflow: hidden;
+}
+
+.bg-login,
+.bg-register,
+.form-side {
+    flex: 1 1 50%;
+    width: 400px;
+}
+.form-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8em 4em;
+}
+.bg-login {
+    height: 100%;
+    background: url("/backgrounds/door.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(75%);
+}
+.bg-register {
+    background: url("/backgrounds/ballon.jpg");
+    filter: none;
+    background-size: 400px;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 .login-head,
 .register-head {
-    color: #d06224;
+    text-align: center;
+}
+.login-head h2,
+.register-head h2 {
+    color: var(--primaryColor);
+}
+.login-head p,
+.register-head p {
+    color: var(--secondaryColor);
 }
 .login-form,
 .register-form {
     display: flex;
     flex-direction: column;
+    align-self: stretch;
     gap: 0.7rem;
-    padding: 0.8em 1em;
 }
 :is(
         .login-form > div:nth-child(-n + 2),
         .register-form > div:not(:last-child)
     ) {
     display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
     align-items: center;
     border-radius: 3px;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     width: 100%;
     padding: 0 0.23em;
 }
@@ -103,6 +140,7 @@ button:active {
 :is(.login-form, .register-form) input {
     padding: 0.7em;
     border: 0;
+    width: 100%;
 }
 :is(.login-form, .register-form) span {
     display: flex;
@@ -112,18 +150,22 @@ button:active {
 }
 :is(.login-form, .register-form) button {
     padding: 0.7em 1.5em;
-    background: #d06224;
+    background: var(--primaryColor);
     color: #fff;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
     width: 100%;
 }
 .sign-in button {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5em;
     background: transparent;
-    color: #d06224;
+    color: var(--primaryColor);
+}
+.to-optn p {
+    color: var(--secondaryColor);
 }
 .item-qty {
     position: absolute;
@@ -144,7 +186,7 @@ button:active {
     background: #fff;
 }
 .art_container h2 {
-    color: #d06224;
+    color: var(--primaryColor);
     font-size: 10rem;
     text-align: center;
 }
@@ -276,13 +318,13 @@ button:active {
     justify-content: center;
     align-items: center;
     /* font-size: 2rem; */
-    color: #d06224;
+    color: var(--primaryColor);
     /* background-color: #000; */
 }
 .info_container {
     height: 100vh;
     display: flex;
-    background: #d06224;
+    background: var(--primaryColor);
 }
 .slider {
     display: flex;
@@ -337,7 +379,7 @@ button:active {
     padding: 1em 1.5em;
     align-self: start;
     background: #fff;
-    color: #d06224;
+    color: var(--primaryColor);
     border: 0;
     border-radius: 5px;
 }
@@ -349,7 +391,7 @@ button:active {
     display: flex;
     justify-content: center;
     padding: 1.5rem 1rem;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .market_container {
     display: flex;
@@ -379,7 +421,7 @@ button:active {
     color: #fff;
 }
 .banner-button button {
-    background: #d06224;
+    background: var(--primaryColor);
     color: #fff;
     border-radius: 20px;
     border: 0;
@@ -457,7 +499,7 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    color: #d06224;
+    color: var(--primaryColor);
     font-weight: 800;
 }
 .btn-add {
@@ -466,14 +508,10 @@ button:active {
 .btn-add button {
     padding: 0.5em 1em;
     border-radius: 15px;
-    background: #d06224;
-    border: 1px solid #b6b5b5;
+    background: var(--primaryColor);
     color: #fff;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
 }
-/* .btn-add button:active {
-    transform: scale(0.9);
-} */
 .artwrk_container {
     display: flex;
     flex-direction: column;
@@ -513,7 +551,7 @@ button:active {
 .artwrk-name {
     font-size: 2rem;
     font-weight: 800;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .artwrk-artiste {
     font-weight: 800;
@@ -526,10 +564,10 @@ button:active {
 }
 .qty-ctrl {
     align-self: start;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     padding: 0.5em 1em;
     border-radius: 20px;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .qty-ctrl,
 .order-actn {
@@ -540,7 +578,7 @@ button:active {
 .order-actn button {
     padding: 0.8em 2.5em;
     border-radius: 20px;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
 }
 .dec button,
 .inc button {
@@ -551,20 +589,20 @@ button:active {
     transform: scale(0.9);
 } */
 .order-actn button:nth-child(1) {
-    background: #d06224;
+    background: var(--primaryColor);
     color: #fff;
 }
 .order-actn button:nth-child(2) {
-    color: #d06224;
+    color: var(--primaryColor);
     background: transparent;
 }
 .delivery-terms {
     align-self: start;
     border-radius: 5px;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
 }
 .delivery-free {
-    border-bottom: 1px solid #d06224;
+    border-bottom: 1px solid var(--primaryColor);
 }
 .delivery-free,
 .delivery-return {
@@ -584,7 +622,7 @@ button:active {
     height: 100%;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 0 10px #b6b5b5;
+    box-shadow: 0 0 10px var(--secondaryColor);
 }
 .artcrd-image img {
     width: 100%;
@@ -610,14 +648,14 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 1.5em;
 }
 .cart-count,
 .wishlist-count,
 .edit-head {
-    border-bottom: 1px solid #d06224;
+    border-bottom: 1px solid var(--primaryColor);
     padding: 0.8em;
 }
 .cart-subtotal {
@@ -627,7 +665,7 @@ button:active {
 }
 .cart-subtotal div:nth-child(-n + 2) {
     padding: 0.4em;
-    border-bottom: 1px solid #b6b5b5;
+    border-bottom: 1px solid var(--secondaryColor);
 }
 .cart-item {
     display: flex;
@@ -636,7 +674,7 @@ button:active {
     gap: 0.5rem;
 }
 :is(.cart-item, .list-item):nth-child(n + 3) {
-    border-top: 1px solid #b6b5b5;
+    border-top: 1px solid var(--secondaryColor);
 }
 .cart-products {
     display: flex;
@@ -650,7 +688,7 @@ button:active {
 .artwrk-total {
     font-size: 1.3rem;
     font-weight: 800;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .cart-ctrl {
     display: flex;
@@ -671,16 +709,16 @@ button:active {
     background: none;
     padding: 0.5em 1em;
     border: 0;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .cart-ctrl {
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     padding: 0.5em 1em;
     border-radius: 20px;
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .cart-dec button,
 .cart-inc button {
@@ -693,13 +731,13 @@ button:active {
     justify-content: space-between;
 }
 .checkout-dets h3 {
-    color: #d06224;
+    color: var(--primaryColor);
 }
 .checkout-btn button {
-    background: #d06224;
+    background: var(--primaryColor);
     width: 100%;
     padding: 0.8em 1em;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     color: #fff;
     border-radius: 5px;
 }
@@ -713,7 +751,7 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 1.5em;
 }
@@ -736,10 +774,10 @@ button:active {
     justify-content: center;
 }
 .list-rmv button {
-    background: #d06224;
+    background: var(--primaryColor);
     width: 100%;
     padding: 0.5em 0.7em;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     color: #fff;
     border-radius: 5px;
 }
@@ -747,8 +785,8 @@ button:active {
     background: transparent;
     width: 100%;
     padding: 0.5em 0.7em;
-    border: 1px solid #d06224;
-    color: #d06224;
+    border: 1px solid var(--primaryColor);
+    color: var(--primaryColor);
     border-radius: 5px;
 }
 /* .list-optn button:active {
@@ -768,12 +806,12 @@ button:active {
     flex-direction: column;
     padding: 0.8em 1em;
     border-radius: 5px;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     height: max-content;
 }
 .menu_container div:not(:last-child) {
     padding: 0.4em;
-    border-bottom: 1px solid #b6b5b5;
+    border-bottom: 1px solid var(--secondaryColor);
 }
 .menu_container div:last-child {
     padding: 0.4em 0 0.4em;
@@ -798,12 +836,12 @@ button:active {
     align-self: center;
 }
 .base-details {
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 1em 1.5em;
 }
 .base-details div:nth-child(1) {
-    border-bottom: 1px solid #b6b5b5;
+    border-bottom: 1px solid var(--secondaryColor);
     padding-bottom: 1.5em;
 }
 .base-details p:nth-child(1) {
@@ -825,14 +863,14 @@ button:active {
     gap: 0.5rem;
     padding: 0.8em 1em;
     border-radius: 5px;
-    border: 1px solid #d06224;
+    border: 1px solid var(--primaryColor);
 }
 .edit label {
     font-weight: 800;
     text-transform: uppercase;
 }
 .edit textarea {
-    border: 1px solid #b6b5b5;
+    border: 1px solid var(--secondaryColor);
     border-radius: 5px;
     height: 100%;
     padding: 0.8em;
@@ -843,7 +881,7 @@ button:active {
 }
 .edit textarea::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background: #b6b5b5;
+    background: var(--secondaryColor);
     border-radius: 15px;
 }
 
