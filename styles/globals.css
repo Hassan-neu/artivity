@@ -791,8 +791,11 @@ button:active {
 .profile-details :is(.personal, .base-details) {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.9rem;
+}
+.personal {
+    align-items: center;
+    align-self: center;
 }
 .base-details {
     border: 1px solid #d06224;

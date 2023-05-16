@@ -1,18 +1,15 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-    AiFillFacebook,
+    AiOutlineTwitter,
     AiOutlineGoogle,
     AiOutlineEye,
     AiOutlineEyeInvisible,
 } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 const Login = () => {
-    const handleGoogleSign = async () => {
-        signIn("google", { callbackUrl: "http://localhost:3000" });
-    };
-    const handleFaceebookSign = async () => {
-        signIn("facebook", { callbackUrl: "http://localhost:3000" });
+    const handleSignIn = async (provider) => {
+        signIn(provider, { callbackUrl: "http://localhost:3000" });
     };
     const [showPassword, setShowPassword] = useState(false);
     return (
@@ -53,7 +50,7 @@ const Login = () => {
                         </div>
                         <div
                             className="sign-in google"
-                            onClick={handleGoogleSign}
+                            onClick={() => handleSignIn("google")}
                         >
                             <button type="button">
                                 Sign In with Google
@@ -62,11 +59,11 @@ const Login = () => {
                         </div>
                         <div
                             className="sign-in facebook"
-                            onClick={handleFaceebookSign}
+                            onClick={() => handleSignIn("twitter")}
                         >
                             <button type="button">
-                                Sign In with Facebook
-                                <AiFillFacebook size={20} />
+                                Sign In with Twitter
+                                <AiOutlineTwitter size={20} />
                             </button>
                         </div>
                     </form>
