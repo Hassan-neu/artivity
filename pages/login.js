@@ -5,6 +5,7 @@ import {
     AiOutlineGoogle,
     AiOutlineEye,
     AiOutlineEyeInvisible,
+    AiFillFacebook,
 } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 const Login = () => {
@@ -59,6 +60,15 @@ const Login = () => {
                         </div>
                         <div
                             className="sign-in facebook"
+                            onClick={() => handleSignIn("facebook")}
+                        >
+                            <button type="button">
+                                Sign In with Facebook
+                                <AiFillFacebook size={20} />
+                            </button>
+                        </div>
+                        <div
+                            className="sign-in twitter"
                             onClick={() => handleSignIn("twitter")}
                         >
                             <button type="button">
