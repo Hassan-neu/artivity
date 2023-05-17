@@ -2,8 +2,25 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useFormik } from "formik";
+import registerValidate from "@/libs/registerValidate";
 const Register = () => {
     const [showPass, setShowPass] = useState({ pass: false, cPass: false });
+    const formik = useFormik({
+        initialValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            cPassword: "",
+        },
+        validate: registerValidate,
+        onSubmit,
+    });
+    async function onSubmit(values) {
+        console.log(values);
+    }
+    console.log(formik.errors);
     return (
         <>
             <Head>
@@ -15,38 +32,80 @@ const Register = () => {
                         <div className="bg-register"></div>
                         <div className="form-side">
                             <div className="register-head">
-                                <h2>Sign Up</h2>
+                                <h2>Create an Account</h2>
                                 <p>
                                     Sign up now and get exclusive access to our
                                     art works
                                 </p>
                             </div>
-                            <form action="submit" className="register-form">
-                                <div className="name">
+                            <form
+                                className="register-form"
+                                onSubmit={formik.handleSubmit}
+                            >
+                                <div
+                                    data-mode={
+                                        formik.errors.firstName &&
+                                        formik.touched.firstName &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Name"
+                                        name="firstName"
+                                        id="firstname"
+                                        placeholder="First Name"
+                                        {...formik.getFieldProps("firstName")}
                                     />
+                                    {formik.errors.firstName &&
+                                        formik.touched.firstName && (
+                                            <p>{formik.errors.firstName}</p>
+                                        )}
                                 </div>
-                                <div className="username">
+                                <div
+                                    data-mode={
+                                        formik.errors.lastName &&
+                                        formik.touched.lastName &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type="text"
-                                        name="username"
-                                        id="username"
-                                        placeholder="username"
+                                        name="lastName"
+                                        id="lastname"
+                                        placeholder="Last name"
+                                        {...formik.getFieldProps("lastName")}
                                     />
+                                    {formik.errors.lastName &&
+                                        formik.touched.lastName && (
+                                            <p>{formik.errors.lastName}</p>
+                                        )}
                                 </div>
-                                <div className="email">
+                                <div
+                                    data-mode={
+                                        formik.errors.email &&
+                                        formik.touched.email &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type="email"
                                         name="email"
                                         id="email"
                                         placeholder="Email"
+                                        {...formik.getFieldProps("email")}
                                     />
+                                    {formik.errors.email &&
+                                        formik.touched.email && (
+                                            <p>{formik.errors.email}</p>
+                                        )}
                                 </div>
-                                <div className="password">
+                                <div
+                                    data-mode={
+                                        formik.errors.password &&
+                                        formik.touched.password &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type={
                                             showPass.pass ? "text" : "password"
@@ -54,7 +113,12 @@ const Register = () => {
                                         name="password"
                                         id="password"
                                         placeholder="Password"
+                                        {...formik.getFieldProps("password")}
                                     />
+                                    {formik.errors.password &&
+                                        formik.touched.password && (
+                                            <p>{formik.errors.password}</p>
+                                        )}
                                     <span
                                         onClick={() =>
                                             setShowPass({
@@ -70,15 +134,26 @@ const Register = () => {
                                         )}
                                     </span>
                                 </div>
-                                <div className="cpassword">
+                                <div
+                                    data-mode={
+                                        formik.errors.cPassword &&
+                                        formik.touched.cPassword &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type={
                                             showPass.cPass ? "text" : "password"
                                         }
-                                        name="cpassword"
+                                        name="cPassword"
                                         id="cpassword"
                                         placeholder="Confirm Password"
+                                        {...formik.getFieldProps("cPassword")}
                                     />
+                                    {formik.errors.cPassword &&
+                                        formik.touched.cPassword && (
+                                            <p>{formik.errors.cPassword}</p>
+                                        )}
                                     <span
                                         onClick={() =>
                                             setShowPass({

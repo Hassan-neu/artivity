@@ -87,7 +87,7 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
     padding: 0.8em 4em;
 }
 .bg-login {
@@ -127,6 +127,7 @@ button:active {
         .login-form > div:nth-child(-n + 2),
         .register-form > div:not(:last-child)
     ) {
+    position: relative;
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
@@ -136,14 +137,28 @@ button:active {
     width: 100%;
     padding: 0 0.23em;
 }
-
+div[data-mode="invalid"] {
+    border: 1px solid #ff0000 !important;
+    box-shadow: 0 0 2px #ff0000;
+}
+div[data-mode="invalid"] p {
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 1.1em;
+    color: #ff0000;
+}
 :is(.login-form, .register-form) input {
-    padding: 0.7em;
+    padding: 0.9em 0.7em 0.7em;
     border: 0;
     width: 100%;
 }
 :is(.login-form, .register-form) span {
+    color: var(--secondaryColor);
     display: flex;
+}
+:is(.login-form, .register-form) span:hover {
+    color: var(--primaryColor);
 }
 :is(.login-form, .register-form) input:focus {
     outline: 0;

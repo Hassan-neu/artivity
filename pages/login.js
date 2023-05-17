@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-    AiOutlineTwitter,
     AiOutlineGoogle,
     AiOutlineEye,
     AiOutlineEyeInvisible,
@@ -9,7 +8,21 @@ import {
 } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import Head from "next/head";
+import { useFormik } from "formik";
+import loginValidate from "@/libs/loginValidate";
 const Login = () => {
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        },
+        validate: loginValidate,
+        onSubmit,
+    });
+    async function onSubmit(values) {
+        console.log(values);
+    }
+
     const handleSignIn = async (provider) => {
         signIn(provider, { callbackUrl: "http://localhost:3000" });
     };
@@ -28,16 +41,36 @@ const Login = () => {
                                 <h2>Welcome Back</h2>
                                 <p>Welcome back! Please enter your details</p>
                             </div>
-                            <form action="submit" className="login-form">
-                                <div className="email">
+                            <form
+                                className="login-form"
+                                onSubmit={formik.handleSubmit}
+                            >
+                                <div
+                                    data-mode={
+                                        formik.errors.email &&
+                                        formik.touched.email &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type="email"
                                         name="email"
                                         id="email"
                                         placeholder="Email"
+                                        {...formik.getFieldProps("email")}
                                     />
+                                    {formik.errors.email &&
+                                        formik.touched.email && (
+                                            <p>{formik.errors.email}</p>
+                                        )}
                                 </div>
-                                <div className="password">
+                                <div
+                                    data-mode={
+                                        formik.errors.password &&
+                                        formik.touched.password &&
+                                        "invalid"
+                                    }
+                                >
                                     <input
                                         type={
                                             showPassword ? "text" : "password"
@@ -45,7 +78,12 @@ const Login = () => {
                                         name="password"
                                         id="password"
                                         placeholder="Password"
+                                        {...formik.getFieldProps("password")}
                                     />
+                                    {formik.errors.password &&
+                                        formik.touched.password && (
+                                            <p>{formik.errors.password}</p>
+                                        )}
                                     <span
                                         onClick={() =>
                                             setShowPassword(!showPassword)
