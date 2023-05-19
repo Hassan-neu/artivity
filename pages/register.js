@@ -27,7 +27,7 @@ const Register = () => {
         };
         fetch("http://localhost:3000/api/auth/signup", options)
             .then((data) => data.json())
-            .then((dir) => dir && router.push("/"));
+            .then((dir) => dir && router.push("/login"));
     }
     return (
         <>
