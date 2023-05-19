@@ -22,7 +22,6 @@ const Login = () => {
     async function onSubmit(values) {
         console.log(values);
     }
-
     const handleSignIn = async (provider) => {
         signIn(provider, { callbackUrl: "http://localhost:3000" });
     };

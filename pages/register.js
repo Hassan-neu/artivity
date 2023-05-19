@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useFormik } from "formik";
 import registerValidate from "@/libs/registerValidate";
+import { useRouter } from "next/router";
 const Register = () => {
+    const router = useRouter();
     const [showPass, setShowPass] = useState({ pass: false, cPass: false });
     const formik = useFormik({
         initialValues: {
@@ -18,9 +20,15 @@ const Register = () => {
         onSubmit,
     });
     async function onSubmit(values) {
-        console.log(values);
+        const options = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(values),
+        };
+        fetch("http://localhost:3000/api/auth/signup", options)
+            .then((data) => data.json())
+            .then((dir) => dir && router.push("/"));
     }
-    console.log(formik.errors);
     return (
         <>
             <Head>

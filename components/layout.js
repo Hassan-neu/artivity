@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
         <div className="layout_wrapper">
             <Head>
                 <title>ARTIVITY | HOME</title>
+                <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
             </Head>
             <header>
                 <Navbar />
