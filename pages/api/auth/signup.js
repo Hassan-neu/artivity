@@ -4,8 +4,13 @@ import { hash } from "bcryptjs";
 async function handler(req, res) {
     if (req.method === "POST") {
         connectMongo();
-        if (!req.body) res.status(204).json({ message: "No content" });
+        if (!req.body) return res.status(204).json({ message: "No content" });
         const { firstName, lastName, email, password } = req.body;
+        const checkUser = await Users.findOne({ email });
+        if (checkUser)
+            return res.status(422).json({
+                message: "User already exists, login instead",
+            });
         const user = await Users.create({
             firstName,
             lastName,
