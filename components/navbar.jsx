@@ -1,15 +1,18 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { RiShoppingCart2Line } from "react-icons/ri";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaBars } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 import { useStateContext } from "@/hooks/stateContext";
-import { useSession } from "next-auth/react";
+import ProfileMenu from "./profileMenu";
 const Navbar = () => {
-    const { data: session } = useSession();
     const { totalQty } = useStateContext();
-    console.log({ session });
+    const [open, setOpen] = useState(false);
     return (
         <div className="navbar">
+            <div className="mobile_ham" onClick={() => setOpen(!open)}>
+                {open ? <RxCross2 /> : <FaBars />}
+            </div>
             <div className="nav-logo">
                 <Link href="/">
                     <h3>ARTIVITY</h3>
@@ -22,6 +25,9 @@ const Navbar = () => {
                 <Link href="/user">
                     <FaRegUser size={30} />
                 </Link>
+                <ProfileMenu
+                    className={`mobile_menu ${open ? "active" : ""}`}
+                />
             </div>
             <div className="nav-cart">
                 <Link href="/cart">

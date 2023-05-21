@@ -1,11 +1,11 @@
 import React from "react";
 import ProfileMenu from "@/components/profileMenu";
 import { getSession } from "next-auth/react";
-const Editdetails = () => {
+const Editdetails = ({ session }) => {
     return (
         <div className="edit_wrapper">
             <div className="edit_container">
-                <ProfileMenu />
+                <ProfileMenu className={"menu_container"} />
                 <div className="edit-details">
                     <div className="edit-head">
                         <h3>Edit Profile and Details</h3>
@@ -29,24 +29,6 @@ const Editdetails = () => {
                                 rows="10"
                             ></textarea>
                         </div>
-                        <div className="edit ">
-                            <label htmlFor="card">Card Details:</label>
-                            <textarea
-                                name=""
-                                id=""
-                                cols="30"
-                                rows="10"
-                            ></textarea>
-                        </div>
-                        <div className="edit ">
-                            <label htmlFor="card">Card Details:</label>
-                            <textarea
-                                name=""
-                                id=""
-                                cols="30"
-                                rows="10"
-                            ></textarea>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -57,7 +39,7 @@ const Editdetails = () => {
 export default Editdetails;
 
 export const getServerSideProps = async ({ req }) => {
-    const session = getSession({ req });
+    const session = await getSession({ req });
     if (!session) {
         return {
             redirect: {

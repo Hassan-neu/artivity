@@ -6,7 +6,7 @@ const Profile = ({ session }) => {
     return (
         <div className="profile_wrapper">
             <div className="profile_container">
-                <ProfileMenu />
+                <ProfileMenu className={"menu_container"} />
                 <div className="profile-details">
                     <div className="personal">
                         <div className="profile-picture">

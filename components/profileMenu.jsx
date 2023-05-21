@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { signOut } from "next-auth/react";
-const ProfileMenu = () => {
+const ProfileMenu = ({ className }) => {
     const handleSignOut = () => {
         signOut();
     };
     return (
-        <div className="menu_container">
+        <div className={className}>
             <div className="account">
                 <Link href="/user">My Account</Link>
             </div>

@@ -46,13 +46,17 @@ button:active {
 .nav-sign a {
     color: var(--primaryColor);
 }
-.nav-sign button,
+.mobile_ham,
+.mobile_menu {
+    display: none;
+}
 .signout-btn button {
     padding: 0.7em 1.5em;
     background: var(--primaryColor);
     color: #fff;
     border: 0;
     border-radius: 5px;
+    width: 100%;
 }
 .nav-cart {
     position: relative;
@@ -358,8 +362,8 @@ div[data-mode="invalid"] p {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     padding: 0.8rem;
     width: 300px;
     height: 400px;
@@ -873,9 +877,6 @@ div[data-mode="invalid"] p {
 .menu_container div:last-child {
     padding: 0.4em 0 0.4em;
 }
-.menu_container button {
-    width: 100%;
-}
 .profile-details {
     gap: 0.9rem;
     justify-content: center;
@@ -955,14 +956,54 @@ div[data-mode="invalid"] p {
         ) {
         padding: 0 3em;
     }
-    .nav-sign svg {
+    .navbar {
+        position: relative;
+        gap: 2rem;
+    }
+    .menu_container {
+        display: none;
+    }
+    .mobile_ham {
+        display: block;
+    }
+    .mobile_menu {
+        position: absolute;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0.8em 1em;
+        border: 1px solid var(--primaryColor);
+        height: max-content;
+        background: rgba(255, 255, 255);
+        top: 90%;
+        left: -40%;
+        border-radius: 2px;
+        transform: translate(-40%, 0);
+        transition: all 1.5s ease-in-out;
+    }
+    .mobile_menu.active {
+        top: 90%;
+        left: 7%;
+        transform: translate(-7%, 0);
+    }
+    .mobile_menu div:not(:last-child) {
+        padding: 0.4em;
+        border-bottom: 1px solid var(--secondaryColor);
+    }
+    .mobile_menu a {
+        color: var(--primaryColor);
+    }
+    .nav-sign svg,
+    .nav-cart svg {
         width: 20px;
         height: 20px;
     }
-    .nav-cart {
-        display: none;
+    .item-qty {
+        width: 13px;
+        font-size: 12px;
+        height: 13px;
     }
-
     .art_container h2 {
         font-size: 3rem;
     }
@@ -1049,5 +1090,11 @@ div[data-mode="invalid"] p {
     .subtotal-head,
     .checkout-dets {
         display: none;
+    }
+    .profile_container,
+    .wishlist_container,
+    .edit_container,
+    .edit-details form {
+        grid-template-columns: 1fr;
     }
 }

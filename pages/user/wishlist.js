@@ -8,7 +8,7 @@ const WishList = () => {
     return (
         <div className="wishlist_wrapper">
             <div className="wishlist_container">
-                <ProfileMenu />
+                <ProfileMenu className={"menu_container"} />
                 <div className="wishlist-artwrks">
                     <div className="wishlist-count">
                         <h3>Saved Items ({wishList.length})</h3>
