@@ -3,8 +3,11 @@ import React from "react";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
 import { useStateContext } from "@/hooks/stateContext";
+import { useSession } from "next-auth/react";
 const Navbar = () => {
+    const { data: session } = useSession();
     const { totalQty } = useStateContext();
+    console.log({ session });
     return (
         <div className="navbar">
             <div className="nav-logo">
@@ -13,7 +16,9 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="nav-sign">
-                {/* <button type="button">SIGN IN</button> */}
+                {/* {session.user.name && (
+                    <div>{session.user.name.split(" ")[0]}</div>
+                )} */}
                 <Link href="/user">
                     <FaRegUser size={30} />
                 </Link>

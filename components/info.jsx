@@ -32,31 +32,31 @@ const Info = () => {
             <div className="info_container">
                 <div className="slider">
                     <div className="slider-art" ref={slider}>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>Mona Lisa</p>
                             <p>Leonardo Da Vinci</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>Wanderer Above the Sea of Fog</p>
                             <p>Casper David Friedrich</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>The Starry Night</p>
                             <p>Vincent van Gogh</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>NightHawks</p>
                             <p>Edward Hopper</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>Impression Sunrise</p>
                             <p>Claude Monet</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>Girl with a Pearl Earring</p>
                             <p>Johannes Vermeer</p>
                         </div>
-                        <div className="art-element">
+                        <div className="art-slide">
                             <p>Antibes Vue de Plateau Notre-Dame</p>
                             <p>Claude Monet</p>
                         </div>

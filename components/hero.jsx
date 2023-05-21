@@ -4,7 +4,7 @@ import LayerPin from "./layerPin";
 import Info from "./info";
 const Hero = () => {
     return (
-        <div className="hero">
+        <div className="hero_wrapper">
             <Art />
             <Info />
             <LayerPin />

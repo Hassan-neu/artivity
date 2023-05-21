@@ -28,8 +28,8 @@ const Login = () => {
             password: values.password,
             callbackUrl: "/",
         });
-        data.status && router.push(data.url);
         console.log(data);
+        data.status && router.push(data.url);
     }
     const handleSignIn = async (provider) => {
         signIn(provider, { callbackUrl: "http://localhost:3000" });

@@ -26,7 +26,9 @@ button:active {
         .cart_wrapper,
         .wishlist_container,
         .profile_container,
-        .edit_container
+        .edit_container,
+        .login_container,
+        .register_container
     ) {
     padding: 0 4rem;
 }
@@ -164,7 +166,7 @@ div[data-mode="invalid"] p {
     outline: 0;
 }
 :is(.login-form, .register-form) button {
-    padding: 0.7em 1.5em;
+    padding: 0.8em;
     background: var(--primaryColor);
     color: #fff;
     border: 1px solid var(--primaryColor);
@@ -352,18 +354,63 @@ div[data-mode="invalid"] p {
     position: relative;
     height: 60%;
 }
-.slider .art-element {
-    top: 50%;
-    left: 50%;
+.slider .art-slide {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     justify-content: end;
     align-items: end;
+    padding: 0.8rem;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
     transform: translate(-50%, -50%);
     transform-origin: unset;
+    font-family: "Reenie Beanie", cursive;
+    font-size: 1.3rem;
+    color: #fff;
     opacity: 0;
     height: 100%;
     transition: opacity 1s cubic-bezier(0, 0.74, 0.89, 0.69);
 }
-.slider .art-element.active {
+.art-slide:nth-of-type(1) {
+    background: url("/backgrounds/mona-lisa.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(2) {
+    background: url("/backgrounds/wanderer.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(3) {
+    background: url("/backgrounds/starry-night.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(4) {
+    background: url("/backgrounds/nighthawks.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(5) {
+    background: url("/backgrounds/impression-sunrise.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(6) {
+    background: url("/backgrounds/girl-with-pearl.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.art-slide:nth-of-type(7) {
+    background: url("/backgrounds/claude-monet.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.slider .art-slide.active {
     opacity: 1;
 }
 .dots {
@@ -376,6 +423,7 @@ div[data-mode="invalid"] p {
     height: 15px;
     border-radius: 50%;
     border: 2px solid #e9e8e8;
+    position: relative;
 }
 .dot.active {
     background: #fff;
@@ -398,10 +446,6 @@ div[data-mode="invalid"] p {
     border: 0;
     border-radius: 5px;
 }
-/* .info-more button:active {
-    transform: scale(0.9);
-    background: #272727;
-} */
 .footer {
     display: flex;
     justify-content: center;
@@ -600,9 +644,7 @@ div[data-mode="invalid"] p {
     background: transparent;
     border: 0;
 }
-/* .order-actn button:active {
-    transform: scale(0.9);
-} */
+
 .order-actn button:nth-child(1) {
     background: var(--primaryColor);
     color: #fff;
@@ -901,6 +943,18 @@ div[data-mode="invalid"] p {
 }
 
 @media screen and (max-width: 480px) {
+    .layout_container:has(
+            .market_wrapper,
+            .artwrk_container,
+            .cart_wrapper,
+            .wishlist_container,
+            .profile_container,
+            .edit_container,
+            .login_container,
+            .register_container
+        ) {
+        padding: 0 3em;
+    }
     .nav-sign svg {
         width: 20px;
         height: 20px;
@@ -910,8 +964,43 @@ div[data-mode="invalid"] p {
     }
 
     .art_container h2 {
-        margin-top: 3rem; /**/
         font-size: 3rem;
+    }
+    .art-element {
+        position: absolute;
+    }
+    .art-element:nth-of-type(1) {
+        top: 40%;
+    }
+    .art-element:nth-of-type(2) {
+        top: calc(40% + 2rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    .art-element:nth-of-type(3) {
+        top: calc(40% + 4rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    .art-element:nth-of-type(4) {
+        top: calc(40% + 6rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    .art-element:nth-of-type(5) {
+        top: calc(40% + 8rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    .art-element:nth-of-type(6) {
+        top: calc(40% + 10rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    .art-element:nth-of-type(7) {
+        top: calc(40% + 12rem);
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
     }
     .info_container {
         padding: 1em 1.5em 2.5em 1.5em;
@@ -928,8 +1017,9 @@ div[data-mode="invalid"] p {
     .slider-art {
         height: 100%;
     }
-    .slider .art-element {
-        width: 100%;
+    .slider .art-slide {
+        font-size: 0.8rem;
+        max-width: 100%;
     }
     .info-more {
         text-align: justify;
@@ -941,5 +1031,23 @@ div[data-mode="invalid"] p {
     .layer-items {
         flex-direction: column;
         font-size: 1.5rem;
+    }
+    .bg-login,
+    .bg-register {
+        display: none;
+    }
+    .form-side {
+        padding: 0.8em 2em;
+    }
+
+    .cart_container {
+        grid-template-columns: 1fr;
+    }
+    .cart-artwrks {
+        min-height: 70vh;
+    }
+    .subtotal-head,
+    .checkout-dets {
+        display: none;
     }
 }

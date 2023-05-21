@@ -5,21 +5,37 @@ gsap.registerPlugin(ScrollTrigger);
 const Art = () => {
     const art = useRef();
     useEffect(() => {
+        const mm = gsap.matchMedia();
         const ctx = gsap.context(() => {}, art);
         const tl = gsap.timeline({});
         ctx.add(() => {
-            tl.from(".art-element", {
-                x: "-100vw",
-                duration: 2,
-                stagger: 0.1,
-                rotation: -260,
-                scrollTrigger: {
-                    trigger: ".art_container",
-                    start: "top top",
-                    end: "+=2000",
-                    scrub: true,
-                    pin: true,
-                },
+            mm.add("(min-width:481px)", () => {
+                tl.from(".art-element", {
+                    x: "-100vw",
+                    duration: 2,
+                    stagger: 0.25,
+                    rotation: -260,
+                    scrollTrigger: {
+                        trigger: ".art_container",
+                        start: "top top",
+                        end: "+=2000",
+                        scrub: true,
+                        pin: true,
+                    },
+                });
+            });
+            mm.add("(max-width:480px)", () => {
+                tl.from(".art-element:nth-of-type(n+2)", {
+                    y: "60vh",
+                    stagger: 0.5,
+                    scrollTrigger: {
+                        trigger: ".art_container",
+                        start: "top top",
+                        end: "+=2000",
+                        pin: true,
+                        scrub: true,
+                    },
+                });
             });
         });
 

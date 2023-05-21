@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileMenu from "@/components/profileMenu";
+import { getSession } from "next-auth/react";
 const Editdetails = () => {
     return (
         <div className="edit_wrapper">
@@ -54,3 +55,20 @@ const Editdetails = () => {
 };
 
 export default Editdetails;
+
+export const getServerSideProps = async ({ req }) => {
+    const session = getSession({ req });
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/login",
+                permanent: false,
+            },
+        };
+    }
+    return {
+        props: {
+            session,
+        },
+    };
+};

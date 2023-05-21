@@ -11,7 +11,9 @@ const Profile = ({ session }) => {
                     <div className="personal">
                         <div className="profile-picture">
                             <Image
-                                src="/claude-monet.jpg"
+                                src={
+                                    session.user.image ? session.user.image : ""
+                                }
                                 alt="profile-picture"
                                 width={100}
                                 height={100}
