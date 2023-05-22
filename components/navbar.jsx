@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="mobile_ham" onClick={() => setOpen(!open)}>
-                {open ? <RxCross2 /> : <FaBars />}
+                {open ? <RxCross2 size={20} /> : <FaBars size={20} />}
             </div>
             <div className="nav-logo">
                 <Link href="/">

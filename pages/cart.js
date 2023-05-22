@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "@/components/cartItem";
 import { useStateContext } from "@/hooks/stateContext";
+import Link from "next/link";
 const Cart = () => {
     const { cartItems, totalQty, totalPrice } = useStateContext();
     return (
@@ -8,16 +9,23 @@ const Cart = () => {
             <div className="cart_container">
                 <div className="cart-artwrks">
                     <div className="cart-count">
-                        <h3>Cart ({totalQty})</h3>
+                        <p>Cart ({totalQty})</p>
                     </div>
-                    {cartItems.length < 1 && <h2>Your Cart is Empty</h2>}
+                    {cartItems.length < 1 && (
+                        <p>
+                            Your Cart is Empty... Continue{" "}
+                            <Link href={"/market"} style={{ color: "#d06224" }}>
+                                Shopping
+                            </Link>
+                        </p>
+                    )}
                     {cartItems.map((item) => (
                         <CartItem key={item.id} item={item} />
                     ))}
                 </div>
                 <div className="cart-subtotal">
                     <div className="subtotal-head">
-                        <h3>Cart summary</h3>
+                        <p>Cart summary</p>
                     </div>
                     <div className="checkout-dets">
                         <p>Subtotal:</p>

@@ -8,7 +8,7 @@ const Editdetails = ({ session }) => {
                 <ProfileMenu className={"menu_container"} />
                 <div className="edit-details">
                     <div className="edit-head">
-                        <h3>Edit Profile and Details</h3>
+                        <p>Edit Address and Card</p>
                     </div>
                     <form action="submit" method="post">
                         <div className="edit address">

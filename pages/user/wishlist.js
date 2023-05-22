@@ -11,9 +11,9 @@ const WishList = () => {
                 <ProfileMenu className={"menu_container"} />
                 <div className="wishlist-artwrks">
                     <div className="wishlist-count">
-                        <h3>Saved Items ({wishList.length})</h3>
+                        <p>Saved Items ({wishList.length})</p>
                     </div>
-                    {wishList.length < 1 && <h2>No Saved Item</h2>}
+                    {wishList.length < 1 && <p>No Saved Item</p>}
                     {wishList.map((wish) => (
                         <WishItem key={wish.id} list={wish} />
                     ))}

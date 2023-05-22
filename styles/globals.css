@@ -33,6 +33,7 @@ button:active {
     padding: 0 4rem;
 }
 .navbar {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 4rem;
@@ -49,6 +50,34 @@ button:active {
 .mobile_ham,
 .mobile_menu {
     display: none;
+}
+.mobile_menu {
+    position: absolute;
+    width: calc(100vw / 2);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.8em 1em;
+    border: 1px solid var(--primaryColor);
+    height: max-content;
+    background: rgba(255, 255, 255);
+    top: 90%;
+    left: -40%;
+    border-radius: 2px;
+    transform: translate(-40%, 0);
+    transition: all 1.5s ease-in-out;
+    z-index: 999;
+}
+.mobile_menu.active {
+    top: 90%;
+    left: 7%;
+    transform: translate(-7%, 0);
+}
+.mobile_menu div:not(:last-child) {
+    padding: 0.4em;
+    border-bottom: 1px solid var(--secondaryColor);
+}
+.mobile_menu a {
+    color: #000;
 }
 .signout-btn button {
     padding: 0.7em 1.5em;
@@ -711,7 +740,7 @@ div[data-mode="invalid"] p {
     gap: 1.5rem;
 }
 .cart-artwrks {
-    min-height: 70vh;
+    min-height: 80vh;
 }
 .cart-artwrks,
 .cart-subtotal {
@@ -819,9 +848,10 @@ div[data-mode="invalid"] p {
     gap: 0.5rem;
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
-    padding: 0.8em 1.5em;
+    padding: 0.8em 2em;
 }
-:is(.wishlist-artwrks, .cart-artwrks) > h2 {
+:is(.wishlist-artwrks, .cart-artwrks) > p {
+    text-align: center;
     margin: auto;
 }
 .list-item {
@@ -862,7 +892,7 @@ div[data-mode="invalid"] p {
     grid-template-columns: 200px 1fr;
     grid-auto-rows: auto;
     gap: 1.5rem;
-    min-height: 70vh;
+    min-height: 80vh;
 }
 .menu_container {
     display: flex;
@@ -910,7 +940,7 @@ div[data-mode="invalid"] p {
 }
 .edit-details form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     grid-auto-rows: 200px;
     gap: 1.5rem;
     align-content: center;
@@ -959,7 +989,7 @@ div[data-mode="invalid"] p {
         padding: 0 2em;
     }
     .navbar {
-        position: relative;
+        padding: 1.5rem;
         gap: 2rem;
     }
     .menu_container {
@@ -969,33 +999,7 @@ div[data-mode="invalid"] p {
         display: block;
     }
     .mobile_menu {
-        position: absolute;
-        width: calc(100vw / 2);
         display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 0.8em 1em;
-        border: 1px solid var(--primaryColor);
-        height: max-content;
-        background: rgba(255, 255, 255);
-        top: 90%;
-        left: -40%;
-        border-radius: 2px;
-        transform: translate(-40%, 0);
-        transition: all 1.5s ease-in-out;
-        z-index: 999;
-    }
-    .mobile_menu.active {
-        top: 90%;
-        left: 7%;
-        transform: translate(-7%, 0);
-    }
-    .mobile_menu div:not(:last-child) {
-        padding: 0.4em;
-        border-bottom: 1px solid var(--secondaryColor);
-    }
-    .mobile_menu a {
-        color: var(--primaryColor);
     }
     .nav-sign svg,
     .nav-cart svg {
@@ -1096,7 +1100,7 @@ div[data-mode="invalid"] p {
     .wishlist-artwrks,
     .profile-details,
     .edit-details {
-        padding: 0.5em;
+        padding: 1.5em;
     }
 }
 @media screen and (min-width: 541px) and (max-width: 768px) {
@@ -1111,6 +1115,15 @@ div[data-mode="invalid"] p {
             .register_container
         ) {
         padding: 0 3em;
+    }
+    .mobile_ham {
+        display: block;
+    }
+    .mobile_menu {
+        display: flex;
+    }
+    .menu_container {
+        display: none;
     }
     .art_container h2 {
         font-size: 5rem;
@@ -1179,6 +1192,16 @@ div[data-mode="invalid"] p {
     }
     .cart_container {
         gap: 0.5rem;
+    }
+    .profile_container,
+    .wishlist_container,
+    .edit_container {
+        grid-template-columns: 1fr;
+    }
+    .wishlist-artwrks,
+    .profile-details,
+    .edit-details {
+        padding: 1.5em;
     }
 }
 
