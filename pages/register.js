@@ -25,7 +25,7 @@ const Register = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(values),
         };
-        fetch("http://localhost:3000/api/auth/signup", options)
+        await fetch("http://localhost:3000/api/auth/signup", options)
             .then((data) => data.json())
             .then((dir) => dir && router.push("/login"));
     }

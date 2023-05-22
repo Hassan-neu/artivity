@@ -19,20 +19,6 @@ const LayerPin = () => {
                     scrub: true,
                 },
             });
-            // tl.from(".box", {
-            //     y: -50,
-            //     stagger: {
-            //         each: 0.25,
-            //         repeat: 2,
-            //         yoyo: true,
-            //     },
-            //     scrollTrigger: {
-            //         trigger: ".second",
-            //         start: "right ",
-            //     },
-
-            //     duration: 2,
-            // });
             tl.to(".box", {
                 scale: 1.1,
                 duration: 0.5,

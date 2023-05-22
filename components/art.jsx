@@ -9,9 +9,10 @@ const Art = () => {
         const ctx = gsap.context(() => {}, art);
         const tl = gsap.timeline({});
         ctx.add(() => {
-            mm.add("(min-width:481px)", () => {
+            mm.add("(min-width:769px)", () => {
                 tl.from(".art-element", {
                     x: "-100vw",
+                    xPercent: -100,
                     duration: 2,
                     stagger: 0.25,
                     rotation: -260,
@@ -24,9 +25,9 @@ const Art = () => {
                     },
                 });
             });
-            mm.add("(max-width:480px)", () => {
+            mm.add("(max-width:768px)", () => {
                 tl.from(".art-element:nth-of-type(n+2)", {
-                    y: "60vh",
+                    y: "100vh",
                     stagger: 0.5,
                     scrollTrigger: {
                         trigger: ".art_container",

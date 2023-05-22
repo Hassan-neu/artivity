@@ -77,7 +77,6 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
     border: 1px solid var(--primaryColor);
     border-radius: 10px;
     overflow: hidden;
@@ -94,7 +93,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 0.8em 4em;
+    padding: 0.8em 3em;
 }
 .bg-login {
     height: 100%;
@@ -158,6 +157,7 @@ div[data-mode="invalid"] p {
     padding: 0.9em 0.7em 0.7em;
     border: 0;
     width: 100%;
+    background: transparent;
 }
 :is(.login-form, .register-form) span {
     color: var(--secondaryColor);
@@ -294,11 +294,7 @@ div[data-mode="invalid"] p {
     background-position: 50% 50%;
     background-size: cover;
 }
-.pin-text {
-    margin: auto;
-    font-size: 4rem;
-    color: #fff;
-}
+
 .layer {
     position: absolute;
     width: 100%;
@@ -316,7 +312,6 @@ div[data-mode="invalid"] p {
     background: url("/backgrounds/girl-with-pearl-wide.jpg");
     background-position: 50% 50%;
     background-size: cover;
-    font-size: 4rem;
     color: #fff;
     /* z-index: 2; */
 }
@@ -324,12 +319,18 @@ div[data-mode="invalid"] p {
     background: url("/backgrounds/the-kiss.jpg");
     background-position: 50% 30%;
     color: #fff;
-    font-size: 4rem;
     background-size: cover;
+}
+.pin-text {
+    text-align: center;
+    margin: auto;
+    font-size: 4rem;
+    color: #fff;
 }
 .layer-items,
 .boxes {
     display: flex;
+    font-size: 4rem;
     align-items: center;
     gap: 0.5rem;
 }
@@ -345,7 +346,9 @@ div[data-mode="invalid"] p {
 .info_container {
     height: 100vh;
     display: flex;
+    gap: 1.5rem;
     background: var(--primaryColor);
+    padding: 2em;
 }
 .slider {
     display: flex;
@@ -365,6 +368,7 @@ div[data-mode="invalid"] p {
     justify-content: flex-end;
     align-items: flex-end;
     padding: 0.8rem;
+    min-width: 100%;
     width: 300px;
     height: 400px;
     top: 50%;
@@ -423,13 +427,15 @@ div[data-mode="invalid"] p {
     align-self: center;
 }
 .dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+    width: 10px;
+    height: 10px;
     border: 2px solid #e9e8e8;
+    border-radius: 2px;
     position: relative;
+    transition: transform 0.5s;
 }
 .dot.active {
+    transform: rotate(45deg);
     background: #fff;
 }
 .info-more {
@@ -704,6 +710,9 @@ div[data-mode="invalid"] p {
     grid-auto-rows: auto;
     gap: 1.5rem;
 }
+.cart-artwrks {
+    min-height: 70vh;
+}
 .cart-artwrks,
 .cart-subtotal {
     display: flex;
@@ -797,15 +806,11 @@ div[data-mode="invalid"] p {
 .checkout-btn button {
     background: var(--primaryColor);
     width: 100%;
-    padding: 0.8em 1em;
+    padding: 0.6em;
     border: 1px solid var(--primaryColor);
     color: #fff;
     border-radius: 5px;
 }
-/* .checkout-btn button:active {
-    transform: scale(0.9);
-} */
-
 .wishlist-artwrks,
 .profile-details,
 .edit-details {
@@ -850,9 +855,6 @@ div[data-mode="invalid"] p {
     color: var(--primaryColor);
     border-radius: 5px;
 }
-/* .list-optn button:active {
-    transform: scale(0.9);
-} */
 .profile_container,
 .wishlist_container,
 .edit_container {
@@ -943,7 +945,7 @@ div[data-mode="invalid"] p {
     border-radius: 15px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 540px) {
     .layout_container:has(
             .market_wrapper,
             .artwrk_container,
@@ -954,7 +956,7 @@ div[data-mode="invalid"] p {
             .login_container,
             .register_container
         ) {
-        padding: 0 3em;
+        padding: 0 2em;
     }
     .navbar {
         position: relative;
@@ -968,7 +970,7 @@ div[data-mode="invalid"] p {
     }
     .mobile_menu {
         position: absolute;
-        width: 180px;
+        width: calc(100vw / 2);
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -981,6 +983,7 @@ div[data-mode="invalid"] p {
         border-radius: 2px;
         transform: translate(-40%, 0);
         transition: all 1.5s ease-in-out;
+        z-index: 999;
     }
     .mobile_menu.active {
         top: 90%;
@@ -1006,9 +1009,6 @@ div[data-mode="invalid"] p {
     }
     .art_container h2 {
         font-size: 3rem;
-    }
-    .art-element {
-        position: absolute;
     }
     .art-element:nth-of-type(1) {
         top: 40%;
@@ -1044,7 +1044,7 @@ div[data-mode="invalid"] p {
         transform: translate(-50%, -50%) rotate(0);
     }
     .info_container {
-        padding: 1em 1.5em 2.5em 1.5em;
+        padding: 2em; /**/
         flex-direction: column;
         gap: 1.5rem;
         align-items: center; /*?*/
@@ -1052,7 +1052,6 @@ div[data-mode="invalid"] p {
     .slider {
         justify-content: start;
         gap: 0.5rem;
-        flex-basis: 60%;
         width: 100%; /*?*/
     }
     .slider-art {
@@ -1060,13 +1059,13 @@ div[data-mode="invalid"] p {
     }
     .slider .art-slide {
         font-size: 0.8rem;
-        max-width: 100%;
     }
     .info-more {
         text-align: justify;
         font-size: 1rem;
     }
-    .pin-text {
+    .pin-text,
+    .boxes {
         font-size: 1.5rem;
     }
     .layer-items {
@@ -1084,9 +1083,6 @@ div[data-mode="invalid"] p {
     .cart_container {
         grid-template-columns: 1fr;
     }
-    .cart-artwrks {
-        min-height: 70vh;
-    }
     .subtotal-head,
     .checkout-dets {
         display: none;
@@ -1096,5 +1092,134 @@ div[data-mode="invalid"] p {
     .edit_container,
     .edit-details form {
         grid-template-columns: 1fr;
+    }
+    .wishlist-artwrks,
+    .profile-details,
+    .edit-details {
+        padding: 0.5em;
+    }
+}
+@media screen and (min-width: 541px) and (max-width: 768px) {
+    .layout_container:has(
+            .market_wrapper,
+            .artwrk_container,
+            .cart_wrapper,
+            .wishlist_container,
+            .profile_container,
+            .edit_container,
+            .login_container,
+            .register_container
+        ) {
+        padding: 0 3em;
+    }
+    .art_container h2 {
+        font-size: 5rem;
+    }
+    .info_container {
+        padding: 2.5em;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /*?*/
+    }
+    .slider {
+        justify-content: start;
+        gap: 0.5rem;
+        width: 100%; /*?*/
+    }
+    .slider-art {
+        height: 100%;
+    }
+    .slider .art-slide {
+        font-size: 0.8rem;
+    }
+    .art-element:nth-of-type(2) {
+        top: 50%;
+        left: 70%;
+        transform: translate(-70%, -50%);
+    }
+    .art-element:nth-of-type(3) {
+        top: 50%;
+        left: 30%;
+        transform: translate(-30%, -50%);
+    }
+    .art-element:nth-of-type(4) {
+        top: 50%;
+        left: 75%;
+        transform: translate(-75%, -50%);
+    }
+    .art-element:nth-of-type(5) {
+        top: 50%;
+        left: 25%;
+        transform: translate(-25%, -50%);
+    }
+    .art-element:nth-of-type(6) {
+        top: 50%;
+        left: 80%;
+        transform: translate(-70%, -50%);
+    }
+    .art-element:nth-of-type(7) {
+        top: 50%;
+        left: 20%;
+        transform: translate(-30%, -50%);
+    }
+    .pin-text,
+    .boxes {
+        font-size: 2rem;
+    }
+    .layer-items {
+        flex-direction: column;
+        font-size: 2rem;
+    }
+    .bg-login,
+    .bg-register {
+        display: none;
+    }
+    .form-side {
+        padding: 0.8em 2em;
+    }
+    .cart_container {
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .art_container h2 {
+        font-size: 6rem;
+    }
+    .art-element:nth-of-type(2) {
+        top: 50%;
+        left: 70%;
+        transform: translate(-70%, -50%);
+    }
+    .art-element:nth-of-type(3) {
+        top: 50%;
+        left: 30%;
+        transform: translate(-30%, -50%);
+    }
+    .art-element:nth-of-type(4) {
+        top: 50%;
+        left: 75%;
+        transform: translate(-75%, -50%);
+    }
+    .art-element:nth-of-type(5) {
+        top: 50%;
+        left: 25%;
+        transform: translate(-25%, -50%);
+    }
+    .art-element:nth-of-type(6) {
+        top: 50%;
+        left: 80%;
+        transform: translate(-70%, -50%);
+    }
+    .art-element:nth-of-type(7) {
+        top: 50%;
+        left: 20%;
+        transform: translate(-30%, -50%);
+    }
+    .layer-items {
+        flex-direction: column;
+    }
+    .form-side {
+        padding: 0.8em 2em;
     }
 }
