@@ -740,7 +740,7 @@ div[data-mode="invalid"] p {
     gap: 1.5rem;
 }
 .cart-artwrks {
-    min-height: 80vh;
+    min-height: 70vh;
 }
 .cart-artwrks,
 .cart-subtotal {
