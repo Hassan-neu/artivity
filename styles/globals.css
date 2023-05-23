@@ -26,9 +26,9 @@ button:active {
         .cart_wrapper,
         .wishlist_container,
         .profile_container,
-        .edit_container,
         .login_container,
-        .register_container
+        .register_container,
+        .checkout_container
     ) {
     padding: 0 4rem;
 }
@@ -733,15 +733,17 @@ div[data-mode="invalid"] p {
     padding: 0.5em;
     font-weight: 800;
 }
-.cart_container {
+.cart_container,
+.checkout_container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-auto-rows: auto;
     gap: 1.5rem;
-    min-height: 70vh;
+    height: 80vh;
 }
 
 .cart-artwrks,
+.checkout-info,
 .cart-subtotal {
     display: flex;
     flex-direction: column;
@@ -750,9 +752,92 @@ div[data-mode="invalid"] p {
     border-radius: 5px;
     padding: 0.8em 1.5em;
 }
+.checkout-info > div:first-child {
+    border-bottom: 1px solid var(--primaryColor);
+}
+.checkout-personal,
+.checkout-shipping {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.shipping-input,
+.personal-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.shipping-input input,
+.personal-input input {
+    padding: 0.9em 0.7em 0.7em;
+    border: 1px solid var(--secondaryColor);
+    border-radius: 2px;
+    width: 100%;
+    background: transparent;
+}
+.shipping-input div,
+.personal-input div {
+    position: relative;
+}
+.first::after {
+    content: "First name";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.last::after {
+    content: "Last name";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.email::after {
+    content: "Email";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.street::after {
+    content: "Street";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.zip::after {
+    content: "Zip code";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.city::after {
+    content: "City";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
+.country::after {
+    content: "Country";
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+}
 .cart-count,
-.wishlist-count,
-.edit-head {
+.wishlist-count {
     border-bottom: 1px solid var(--primaryColor);
     padding: 0.8em;
 }
@@ -761,7 +846,7 @@ div[data-mode="invalid"] p {
     gap: 1.3rem;
     height: max-content;
 }
-.cart-subtotal div:nth-child(-n + 2) {
+.cart-subtotal div:not(:last-child) {
     padding: 0.4em;
     border-bottom: 1px solid var(--secondaryColor);
 }
@@ -828,9 +913,6 @@ div[data-mode="invalid"] p {
     display: flex;
     justify-content: space-between;
 }
-.checkout-dets h3 {
-    color: var(--primaryColor);
-}
 .checkout-btn button {
     background: var(--primaryColor);
     width: 100%;
@@ -840,15 +922,13 @@ div[data-mode="invalid"] p {
     border-radius: 5px;
 }
 .wishlist-artwrks,
-.profile-details,
-.edit-details {
+.profile-details {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 2em;
-    /* height: max-content; */
 }
 :is(.wishlist-artwrks, .cart-artwrks) > p {
     text-align: center;
@@ -886,13 +966,12 @@ div[data-mode="invalid"] p {
     border-radius: 5px;
 }
 .profile_container,
-.wishlist_container,
-.edit_container {
+.wishlist_container {
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-auto-rows: auto;
     gap: 1.5rem;
-    min-height: 80vh;
+    height: 80vh;
 }
 .menu_container {
     display: flex;
@@ -938,41 +1017,6 @@ div[data-mode="invalid"] p {
     font-weight: 800;
     padding-bottom: 0.5em;
 }
-.edit-details form {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 200px;
-    gap: 1.5rem;
-    width: 100%;
-    height: 100%;
-}
-.edit-details form .edit {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.8em 1em;
-    border-radius: 5px;
-    border: 1px solid var(--primaryColor);
-}
-.edit label {
-    font-weight: 800;
-    text-transform: uppercase;
-}
-.edit textarea {
-    border: 1px solid var(--secondaryColor);
-    border-radius: 5px;
-    height: 100%;
-    padding: 0.8em;
-}
-.edit textarea::-webkit-scrollbar {
-    width: 8px;
-    cursor: pointer;
-}
-.edit textarea::-webkit-scrollbar-thumb {
-    cursor: pointer;
-    background: var(--secondaryColor);
-    border-radius: 15px;
-}
 
 @media screen and (max-width: 540px) {
     .layout_container:has(
@@ -980,10 +1024,9 @@ div[data-mode="invalid"] p {
             .artwrk_container,
             .cart_wrapper,
             .wishlist_container,
-            .profile_container,
-            .edit_container,
-            .login_container,
-            .register_container
+            .profile_container .login_container,
+            .register_container,
+            .checkout_container
         ) {
         padding: 0 2em;
     }
@@ -1091,18 +1134,12 @@ div[data-mode="invalid"] p {
         display: none;
     }
     .profile_container,
-    .wishlist_container,
-    .edit_container,
-    .edit-details form {
+    .wishlist_container {
         grid-template-columns: 1fr;
     }
-    .edit-details form .edit {
-        padding: 0;
-        border: none;
-    }
+
     .wishlist-artwrks,
-    .profile-details,
-    .edit-details {
+    .profile-details {
         padding: 1em;
     }
 }
@@ -1113,7 +1150,6 @@ div[data-mode="invalid"] p {
             .cart_wrapper,
             .wishlist_container,
             .profile_container,
-            .edit_container,
             .login_container,
             .register_container
         ) {
@@ -1197,13 +1233,11 @@ div[data-mode="invalid"] p {
         gap: 0.5rem;
     }
     .profile_container,
-    .wishlist_container,
-    .edit_container {
+    .wishlist_container {
         grid-template-columns: 1fr;
     }
     .wishlist-artwrks,
-    .profile-details,
-    .edit-details {
+    .profile-details {
         padding: 1.5em;
     }
 }

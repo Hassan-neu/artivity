@@ -29,12 +29,12 @@ const Cart = () => {
                     </div>
                     <div className="checkout-dets">
                         <p>Subtotal:</p>
-                        <h3>
+                        <p>
                             $
                             {totalPrice
                                 .toString()
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </h3>
+                        </p>
                     </div>
                     <div className="checkout-btn">
                         <button type="button">

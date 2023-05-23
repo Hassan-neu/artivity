@@ -11,15 +11,15 @@ const Profile = ({ session }) => {
                     <div className="personal">
                         <div className="profile-picture">
                             <Image
-                                src={
-                                    session.user.image ? session.user.image : ""
-                                }
+                                // src={
+                                //     session.user.image ? session.user.image : ""
+                                // }
                                 alt="profile-picture"
                                 width={100}
                                 height={100}
                             />
                         </div>
-                        <p>{session.user.email}</p>
+                        {/* <p>{session.user.email}</p> */}
                     </div>
                     <div className="base-details">
                         <div className="address-details">

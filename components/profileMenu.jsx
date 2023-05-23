@@ -13,9 +13,6 @@ const ProfileMenu = ({ className }) => {
             <div className="wishlist">
                 <Link href="/user/wishlist">Wishlist</Link>
             </div>
-            <div className="details-edit">
-                <Link href="/user/editdetails">Edit details</Link>
-            </div>
             <div className="signout-btn" onClick={handleSignOut}>
                 <button type="button"> Sign Out</button>
             </div>
