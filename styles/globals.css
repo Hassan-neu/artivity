@@ -61,10 +61,10 @@ button:active {
     height: max-content;
     background: rgba(255, 255, 255);
     top: 90%;
-    left: -40%;
+    left: -100%;
     border-radius: 2px;
-    transform: translate(-40%, 0);
-    transition: all 1.5s ease-in-out;
+    transform: translate(-100%, 0);
+    transition: all 0.8s ease-in-out;
     z-index: 999;
 }
 .mobile_menu.active {
@@ -738,10 +738,9 @@ div[data-mode="invalid"] p {
     grid-template-columns: 2fr 1fr;
     grid-auto-rows: auto;
     gap: 1.5rem;
-}
-.cart-artwrks {
     min-height: 70vh;
 }
+
 .cart-artwrks,
 .cart-subtotal {
     display: flex;
@@ -849,6 +848,7 @@ div[data-mode="invalid"] p {
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 2em;
+    /* height: max-content; */
 }
 :is(.wishlist-artwrks, .cart-artwrks) > p {
     text-align: center;
@@ -943,7 +943,6 @@ div[data-mode="invalid"] p {
     grid-template-columns: 1fr;
     grid-auto-rows: 200px;
     gap: 1.5rem;
-    align-content: center;
     width: 100%;
     height: 100%;
 }
@@ -1097,10 +1096,14 @@ div[data-mode="invalid"] p {
     .edit-details form {
         grid-template-columns: 1fr;
     }
+    .edit-details form .edit {
+        padding: 0;
+        border: none;
+    }
     .wishlist-artwrks,
     .profile-details,
     .edit-details {
-        padding: 1.5em;
+        padding: 1em;
     }
 }
 @media screen and (min-width: 541px) and (max-width: 768px) {
