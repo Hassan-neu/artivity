@@ -5,7 +5,7 @@ import { useStateContext } from "@/hooks/stateContext";
 import { urlFor } from "@/libs/client";
 const WishItem = ({ list }) => {
     const { image, artiste, name, price, id, slug } = list;
-    const { toRemoveArt } = useStateContext();
+    const { toRemoveArt, setTotalFee, setTotalPrice } = useStateContext();
     return (
         <div className="list-item">
             <div className="list-dets">
@@ -38,7 +38,24 @@ const WishItem = ({ list }) => {
                     <button type="button"> Remove</button>
                 </div>
                 <div className="list-buy">
-                    <button type="button">Buy Now</button>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setTotalFee(price + price * 0.05),
+                                setTotalPrice(price);
+                        }}
+                    >
+                        <Link
+                            href={"/checkout"}
+                            style={{
+                                color: "#d06224",
+                                width: "100%",
+                                display: "block",
+                            }}
+                        >
+                            Buy Now
+                        </Link>
+                    </button>
                 </div>
             </div>
         </div>

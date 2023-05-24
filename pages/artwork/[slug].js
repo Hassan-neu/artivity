@@ -12,7 +12,8 @@ import {
 import { useStateContext } from "@/hooks/stateContext";
 import Link from "next/link";
 const ArtPage = ({ product, moreByArtiste }) => {
-    const { qty, incQty, decQty, addToCart } = useStateContext();
+    const { qty, incQty, decQty, addToCart, setTotalFee, setTotalPrice } =
+        useStateContext();
     const { image, name, artiste, description, price, _id } = product;
 
     return (
@@ -100,7 +101,24 @@ const ArtPage = ({ product, moreByArtiste }) => {
                                 >
                                     Add to Cart
                                 </button>
-                                <button type="button">Buy Now</button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setTotalFee(price + price * 0.05),
+                                            setTotalPrice(price);
+                                    }}
+                                >
+                                    <Link
+                                        href={"/checkout"}
+                                        style={{
+                                            color: "#d06224",
+                                            width: "100%",
+                                            display: "block",
+                                        }}
+                                    >
+                                        Buy Now
+                                    </Link>
+                                </button>
                             </div>
                         </div>
                         <div className="delivery-terms">

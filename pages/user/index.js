@@ -21,26 +21,6 @@ const Profile = ({ session }) => {
                         </div>
                         <p>{session.user.email}</p>
                     </div>
-                    <div className="base-details">
-                        <div className="address-details">
-                            <p>Address:</p>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur
-                                adipisicing elit. Aut veniam mollitia
-                                exercitationem quae, doloremque dolores eligendi
-                                corporis quia ab fuga?
-                            </p>
-                        </div>
-                        <div className="card-details">
-                            <p>Card details:</p>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Dolores est cumque quaerat
-                                molestias non voluptas reprehenderit. Quibusdam
-                                amet debitis deserunt.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

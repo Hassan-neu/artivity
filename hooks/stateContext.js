@@ -101,6 +101,7 @@ export const StateContext = ({ children }) => {
                 setTotalQty,
                 totalQty,
                 totalPrice,
+                setTotalPrice,
                 toRemove,
                 cartQtyToggle,
                 wishList,
@@ -108,6 +109,7 @@ export const StateContext = ({ children }) => {
                 toRemoveArt,
                 totalFee,
                 setTotalFee,
+                setCartItems,
             }}
         >
             {children}

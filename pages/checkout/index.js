@@ -2,8 +2,9 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import { useStateContext } from "@/hooks/stateContext";
 import { usePaystackPayment } from "react-paystack";
-
+import { useRouter } from "next/router";
 const Checkout = () => {
+    const route = useRouter();
     const { data: session } = useSession();
     const { totalPrice, totalFee } = useStateContext();
     const config = {
@@ -15,9 +16,11 @@ const Checkout = () => {
     const initializePayment = usePaystackPayment(config);
 
     function onSucess(reference) {
-        console.log(reference);
+        route.push("/checkout/success");
+        console.log({ reference });
     }
     function onClose() {
+        route.back();
         console.log("closed");
     }
     return (
