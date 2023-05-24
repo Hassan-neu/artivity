@@ -3,7 +3,7 @@ import CartItem from "@/components/cartItem";
 import { useStateContext } from "@/hooks/stateContext";
 import Link from "next/link";
 const Cart = () => {
-    const { cartItems, totalQty, totalPrice } = useStateContext();
+    const { cartItems, totalQty, totalPrice, setTotalFee } = useStateContext();
     return (
         <div className="cart_wrapper">
             <div className="cart_container">
@@ -39,8 +39,20 @@ const Cart = () => {
                         </p>
                     </div>
                     <div className="checkout-btn">
-                        <button type="button">
-                            <Link href="/checkout" style={{ color: "#fff" }}>
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setTotalFee(totalPrice + totalPrice * 0.05)
+                            }
+                        >
+                            <Link
+                                href={"/checkout"}
+                                style={{
+                                    color: "#fff",
+                                    width: "100%",
+                                    display: "block",
+                                }}
+                            >
                                 CHECKOUT ( $
                                 {totalPrice
                                     .toString()

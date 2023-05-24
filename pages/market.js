@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React from "react";
-import SearchAction from "@/components/searchAction";
 import Products from "@/components/products";
 import MarkertBanner from "@/components/markertBanner";
 import { client } from "@/libs/client";
@@ -13,7 +12,6 @@ const Market = ({ products }) => {
             <div className="market_wrapper">
                 <div className="market_container">
                     <MarkertBanner />
-                    <SearchAction />
                     <Products products={products} />
                 </div>
             </div>

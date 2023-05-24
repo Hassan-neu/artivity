@@ -479,7 +479,6 @@ div[data-mode="invalid"] p {
 }
 .info-more button {
     padding: 1em 1.5em;
-    align-self: start;
     background: #fff;
     color: var(--primaryColor);
     border: 0;
@@ -633,6 +632,8 @@ div[data-mode="invalid"] p {
     object-fit: cover;
     object-position: center;
     display: block;
+    min-width: 100%;
+    height: auto;
 }
 .artwrk-details {
     display: flex;
@@ -709,6 +710,16 @@ div[data-mode="invalid"] p {
 .artwork-byartiste {
     display: flex;
     gap: 1rem;
+    overflow: auto;
+    scroll-snap-type: x proximity;
+    padding: 0.5rem 0;
+}
+.artwork-byartiste::-webkit-scrollbar {
+    display: none;
+}
+
+.artwork-byartiste a {
+    scroll-snap-align: center;
 }
 .artcrd-card {
     display: flex;
@@ -753,6 +764,9 @@ div[data-mode="invalid"] p {
     padding: 0.8em 1.5em;
     overflow-y: hidden;
 }
+.checkout-info {
+    overflow-y: scroll;
+}
 .cart-list,
 .wishlist-list {
     display: flex;
@@ -760,7 +774,7 @@ div[data-mode="invalid"] p {
     padding: 0.8em 0 0.8em;
     overflow-y: scroll;
 }
-:is(.cart-list, .wishlist-list)::-webkit-scrollbar {
+:is(.cart-list, .wishlist-list, .checkout-info)::-webkit-scrollbar {
     display: none;
 }
 .checkout-info > div:first-child {
@@ -923,6 +937,8 @@ div[data-mode="invalid"] p {
 .checkout-dets {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.2rem;
 }
 .checkout-btn button {
     background: var(--primaryColor);
@@ -1136,9 +1152,31 @@ div[data-mode="invalid"] p {
     .form-side {
         padding: 0.8em 2em;
     }
-
-    .cart_container {
+    .artwrk-top {
+        flex-direction: column;
+    }
+    .artwrk-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    .cart_container,
+    .checkout_container {
         grid-template-columns: 1fr;
+    }
+    .checkout_container .cart-artwrks,
+    .checkout-info {
+        padding: 0.8em;
+    }
+    .checkout-personal,
+    .checkout-shipping {
+        padding: 0.8em;
+    }
+    .cart-products {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .artwrk-total {
+        align-self: flex-end;
     }
     .subtotal-head,
     .checkout-dets {
@@ -1148,10 +1186,25 @@ div[data-mode="invalid"] p {
     .wishlist_container {
         grid-template-columns: 1fr;
     }
-
+    .checkout_container .checkout-dets {
+        display: flex;
+    }
+    .cart-subtotal {
+        gap: 0.1rem;
+    }
+    .cart-subtotal div:not(:last-child) {
+        padding: 0.2em;
+    }
     .wishlist-artwrks,
     .profile-details {
         padding: 1em;
+    }
+    .list-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .list-optn {
+        gap: 0.5rem;
     }
 }
 @media screen and (min-width: 541px) and (max-width: 768px) {
@@ -1225,6 +1278,13 @@ div[data-mode="invalid"] p {
         left: 20%;
         transform: translate(-30%, -50%);
     }
+    .artwrk-top {
+        flex-direction: column;
+    }
+    .artwrk-image img {
+        max-width: 100%;
+        height: auto;
+    }
     .pin-text,
     .boxes {
         font-size: 2rem;
@@ -1243,6 +1303,13 @@ div[data-mode="invalid"] p {
     .cart_container {
         gap: 0.5rem;
     }
+    .cart-products {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .artwrk-total {
+        align-self: flex-end;
+    }
     .profile_container,
     .wishlist_container {
         grid-template-columns: 1fr;
@@ -1250,6 +1317,24 @@ div[data-mode="invalid"] p {
     .wishlist-artwrks,
     .profile-details {
         padding: 1.5em;
+    }
+    .checkout-personal,
+    .checkout-shipping,
+    .checkout-info {
+        padding: 0.8em;
+    }
+    .cart-subtotal {
+        gap: 0.3rem;
+    }
+    .cart-subtotal div:not(:last-child) {
+        padding: 0.3em;
+    }
+    .list-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .list-optn {
+        gap: 0.5rem;
     }
 }
 
@@ -1289,6 +1374,10 @@ div[data-mode="invalid"] p {
     }
     .layer-items {
         flex-direction: column;
+    }
+    .artwrk-image img {
+        max-width: 100%;
+        height: auto;
     }
     .form-side {
         padding: 0.8em 2em;

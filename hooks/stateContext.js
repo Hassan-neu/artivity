@@ -6,6 +6,7 @@ export const StateContext = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [wishList, setWishList] = useState([]);
+    const [totalFee, setTotalFee] = useState(0);
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     };
@@ -105,6 +106,8 @@ export const StateContext = ({ children }) => {
                 wishList,
                 toSaveArts,
                 toRemoveArt,
+                totalFee,
+                setTotalFee,
             }}
         >
             {children}

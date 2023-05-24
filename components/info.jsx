@@ -77,9 +77,19 @@ const Info = () => {
                         Discover the allure of history with our timeless antique
                         art collection.
                     </h2>
-                    <Link href="/market">
-                        <button type="button"> START SHOPPING</button>
-                    </Link>
+
+                    <button type="button">
+                        <Link
+                            href="/market"
+                            style={{
+                                display: "block",
+                                width: "100%",
+                                color: "#d06224",
+                            }}
+                        >
+                            START SHOPPING
+                        </Link>
+                    </button>
                 </div>
             </div>
         </div>

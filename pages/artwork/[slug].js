@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineArrowLeft } from "react-icons/ai";
 import { client, urlFor } from "@/libs/client";
 import ByArtiste from "@/components/byArtiste";
 import {
@@ -10,6 +10,7 @@ import {
     RiClipboardLine,
 } from "react-icons/ri";
 import { useStateContext } from "@/hooks/stateContext";
+import Link from "next/link";
 const ArtPage = ({ product, moreByArtiste }) => {
     const { qty, incQty, decQty, addToCart } = useStateContext();
     const { image, name, artiste, description, price, _id } = product;
@@ -19,6 +20,18 @@ const ArtPage = ({ product, moreByArtiste }) => {
             <div className="artwrk_container">
                 <div className="artwrk-top">
                     <div className="artwrk-image">
+                        <Link
+                            href="/market"
+                            style={{
+                                color: "#d06224",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: ".2rem",
+                                marginBottom: ".5rem",
+                            }}
+                        >
+                            <AiOutlineArrowLeft /> Back
+                        </Link>
                         <Image
                             src={urlFor(image[0]).url()}
                             width={500}

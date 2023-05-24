@@ -1,7 +1,9 @@
 import React from "react";
 import { useSession } from "next-auth/react";
+import { useStateContext } from "@/hooks/stateContext";
 const Checkout = () => {
     const { data: session } = useSession();
+    const { totalPrice, totalFee } = useStateContext();
     return (
         <div className="checkout_wrapper">
             <div className="checkout_container">
@@ -14,6 +16,7 @@ const Checkout = () => {
                                     type="text"
                                     name="firstname"
                                     id="firstname"
+                                    readOnly
                                     value={session.user.name.split(" ")[0]}
                                 />
                             </div>
@@ -22,6 +25,7 @@ const Checkout = () => {
                                     type="text"
                                     name="lastname"
                                     id="lastname"
+                                    readOnly
                                     value={session.user.name.split(" ")[1]}
                                 />
                             </div>
@@ -30,6 +34,7 @@ const Checkout = () => {
                                     type="text"
                                     name="email"
                                     id="email"
+                                    readOnly
                                     value={session.user.email}
                                 />
                             </div>
@@ -58,14 +63,14 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className="cart-subtotal">
-                    <div className="subtotal-head">
+                    <div className="checkout-head">
                         <p>Order summary</p>
                     </div>
                     <div className="checkout-dets">
                         <p>Items&apos;s total:</p>
                         <p>
                             $
-                            {(10000000)
+                            {totalPrice
                                 .toString()
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </p>
@@ -74,7 +79,7 @@ const Checkout = () => {
                         <p>Delivery fees:</p>
                         <p>
                             $
-                            {(10000000)
+                            {(totalPrice * 0.05)
                                 .toString()
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </p>
@@ -83,7 +88,7 @@ const Checkout = () => {
                         <p>Total:</p>
                         <p>
                             $
-                            {(10000000)
+                            {totalFee
                                 .toString()
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </p>
