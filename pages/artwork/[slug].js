@@ -22,7 +22,7 @@ const ArtPage = ({ product, moreByArtiste }) => {
                 <div className="artwrk-top">
                     <div className="artwrk-image">
                         <Link
-                            href="/market"
+                            href="/gallery"
                             style={{
                                 color: "#d06224",
                                 display: "flex",

@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { FaRegUser, FaBars } from "react-icons/fa";
+import { TfiGallery } from "react-icons/tfi";
 import { RxCross2 } from "react-icons/rx";
 import { useStateContext } from "@/hooks/stateContext";
 import ProfileMenu from "./profileMenu";
@@ -28,6 +29,11 @@ const Navbar = () => {
                 <ProfileMenu
                     className={`mobile_menu ${open ? "active" : ""}`}
                 />
+            </div>
+            <div className="nav-gallery">
+                <Link href="/gallery">
+                    <TfiGallery size={30} />
+                </Link>
             </div>
             <div className="nav-cart">
                 <Link href="/cart">

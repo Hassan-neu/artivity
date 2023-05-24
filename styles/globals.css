@@ -44,7 +44,8 @@ button:active {
     margin: 0 auto 0 0;
 }
 .nav-logo a,
-.nav-sign a {
+.nav-sign a,
+.nav-gallery a {
     color: var(--primaryColor);
 }
 .mobile_ham,
@@ -53,7 +54,7 @@ button:active {
 }
 .mobile_menu {
     position: absolute;
-    width: calc(100vw / 2);
+    width: 90vw;
     flex-direction: column;
     gap: 1.5rem;
     padding: 0.8em 1em;
@@ -473,7 +474,6 @@ div[data-mode="invalid"] p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 0.5rem;
     color: #fff;
     /* background: #000; */
@@ -497,26 +497,24 @@ div[data-mode="invalid"] p {
     gap: 1.5rem;
 }
 .banner_container {
-    position: relative;
     display: flex;
+    gap: 0.8rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 200px;
 }
 .market-banner {
-    background: url("/backgrounds/van-gogh.jpg");
+    background: url("/backgrounds/samothrace.jpg");
     background-position: 50% 25%;
-    position: absolute;
     background-size: cover;
-    filter: blur(5px);
-    z-index: -1;
-    height: 300px;
+    filter: blur(2px);
+    height: 100%;
     width: 100%;
 }
 .banner_container h2 {
     text-transform: uppercase;
-    color: #fff;
+    color: var(--primaryColor);
 }
 
 .market-action form {
@@ -1070,7 +1068,8 @@ div[data-mode="invalid"] p {
         display: flex;
     }
     .nav-sign svg,
-    .nav-cart svg {
+    .nav-cart svg,
+    .nav-gallery svg {
         width: 20px;
         height: 20px;
     }
@@ -1229,6 +1228,12 @@ div[data-mode="invalid"] p {
     }
     .menu_container {
         display: none;
+    }
+    .nav-sign svg,
+    .nav-cart svg,
+    .nav-gallery svg {
+        width: 25px;
+        height: 25px;
     }
     .art_container h2 {
         font-size: 5rem;

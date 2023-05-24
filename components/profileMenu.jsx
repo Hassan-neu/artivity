@@ -13,6 +13,9 @@ const ProfileMenu = ({ className }) => {
             <div className="wishlist">
                 <Link href="/user/wishlist">Wishlist</Link>
             </div>
+            <div className="market">
+                <Link href="/gallery">The Gallery</Link>
+            </div>
             <div className="signout-btn" onClick={handleSignOut}>
                 <button type="button"> Sign Out</button>
             </div>

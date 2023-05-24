@@ -80,7 +80,7 @@ const Info = () => {
 
                     <button type="button">
                         <Link
-                            href="/market"
+                            href="/gallery"
                             style={{
                                 display: "block",
                                 width: "100%",

@@ -26,7 +26,7 @@ const SuccessPage = () => {
                     </div>
                     <div className="success-btn">
                         <button type="button">
-                            <Link href="/market" style={{ color: "#fff" }}>
+                            <Link href="/gallery" style={{ color: "#fff" }}>
                                 Continue Shopping
                             </Link>
                         </button>
