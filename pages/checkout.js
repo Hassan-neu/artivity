@@ -1,9 +1,25 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { useStateContext } from "@/hooks/stateContext";
+import { usePaystackPayment } from "react-paystack";
+
 const Checkout = () => {
     const { data: session } = useSession();
     const { totalPrice, totalFee } = useStateContext();
+    const config = {
+        reference: new Date().getTime().toString(),
+        email: session.user.email,
+        amount: totalFee,
+        publicKey: "pk_test_d6ac81974b42368a4d3845ac89ba4ad84939000e",
+    };
+    const initializePayment = usePaystackPayment(config);
+
+    function onSucess(reference) {
+        console.log(reference);
+    }
+    function onClose() {
+        console.log("closed");
+    }
     return (
         <div className="checkout_wrapper">
             <div className="checkout_container">
@@ -93,7 +109,12 @@ const Checkout = () => {
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </p>
                     </div>
-                    <div className="checkout-btn">
+                    <div
+                        className="checkout-btn"
+                        onClick={() => {
+                            initializePayment(onSucess, onClose);
+                        }}
+                    >
                         <button type="button">CONFIRM ORDER</button>
                     </div>
                 </div>
