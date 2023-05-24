@@ -751,6 +751,17 @@ div[data-mode="invalid"] p {
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 1.5em;
+    overflow-y: hidden;
+}
+.cart-list,
+.wishlist-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8em 0 0.8em;
+    overflow-y: scroll;
+}
+:is(.cart-list, .wishlist-list)::-webkit-scrollbar {
+    display: none;
 }
 .checkout-info > div:first-child {
     border-bottom: 1px solid var(--primaryColor);
@@ -853,10 +864,10 @@ div[data-mode="invalid"] p {
 .cart-item {
     display: flex;
     flex-direction: column;
-    padding: 0.8em 1em 0em;
+    padding: 0.8em 1em 0.8em;
     gap: 0.5rem;
 }
-:is(.cart-item, .list-item):nth-child(n + 3) {
+:is(.cart-item, .list-item):nth-child(n + 2) {
     border-top: 1px solid var(--secondaryColor);
 }
 .cart-products {
@@ -925,10 +936,10 @@ div[data-mode="invalid"] p {
 .profile-details {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
     padding: 0.8em 2em;
+    overflow-y: hidden;
 }
 :is(.wishlist-artwrks, .cart-artwrks) > p {
     text-align: center;

@@ -14,7 +14,7 @@ const Checkout = () => {
                                     type="text"
                                     name="firstname"
                                     id="firstname"
-                                    value={""}
+                                    value={session.user.name.split(" ")[0]}
                                 />
                             </div>
                             <div className="last">
@@ -22,7 +22,7 @@ const Checkout = () => {
                                     type="text"
                                     name="lastname"
                                     id="lastname"
-                                    value={""}
+                                    value={session.user.name.split(" ")[1]}
                                 />
                             </div>
                             <div className="email">
@@ -30,7 +30,7 @@ const Checkout = () => {
                                     type="text"
                                     name="email"
                                     id="email"
-                                    value={""}
+                                    value={session.user.email}
                                 />
                             </div>
                         </div>

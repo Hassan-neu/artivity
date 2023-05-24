@@ -14,9 +14,11 @@ const WishList = () => {
                         <p>Saved Items ({wishList.length})</p>
                     </div>
                     {wishList.length < 1 && <p>No Saved Item</p>}
-                    {wishList.map((wish) => (
-                        <WishItem key={wish.id} list={wish} />
-                    ))}
+                    <div className="wishlist-list">
+                        {wishList.map((wish) => (
+                            <WishItem key={wish.id} list={wish} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

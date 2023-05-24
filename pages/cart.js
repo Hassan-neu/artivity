@@ -19,9 +19,11 @@ const Cart = () => {
                             </Link>
                         </p>
                     )}
-                    {cartItems.map((item) => (
-                        <CartItem key={item.id} item={item} />
-                    ))}
+                    <div className="cart-list">
+                        {cartItems.map((item) => (
+                            <CartItem key={item.id} item={item} />
+                        ))}
+                    </div>
                 </div>
                 <div className="cart-subtotal">
                     <div className="subtotal-head">
@@ -38,11 +40,13 @@ const Cart = () => {
                     </div>
                     <div className="checkout-btn">
                         <button type="button">
-                            CHECKOUT ( $
-                            {totalPrice
-                                .toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                            )
+                            <Link href="/checkout" style={{ color: "#fff" }}>
+                                CHECKOUT ( $
+                                {totalPrice
+                                    .toString()
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                                )
+                            </Link>
                         </button>
                     </div>
                 </div>
