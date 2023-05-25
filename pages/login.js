@@ -107,6 +107,7 @@ const Login = () => {
                                 <div className="login-btn">
                                     <button type="submit">Log in</button>
                                 </div>
+
                                 <div
                                     className="sign-in google"
                                     onClick={() => handleSignIn("google")}
@@ -114,15 +115,6 @@ const Login = () => {
                                     <button type="button">
                                         <AiOutlineGoogle size={20} />
                                         <p>Sign In with Google</p>
-                                    </button>
-                                </div>
-                                <div
-                                    className="sign-in facebook"
-                                    onClick={() => handleSignIn("facebook")}
-                                >
-                                    <button type="button">
-                                        <AiFillFacebook size={20} />
-                                        <p>Sign In with Facebook</p>
                                     </button>
                                 </div>
                             </form>

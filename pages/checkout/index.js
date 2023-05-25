@@ -1,11 +1,10 @@
 import React from "react";
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import { useStateContext } from "@/hooks/stateContext";
 import { usePaystackPayment } from "react-paystack";
 import { useRouter } from "next/router";
-const Checkout = () => {
+const Checkout = ({ session }) => {
     const route = useRouter();
-    const { data: session } = useSession();
     const { totalPrice, totalFee } = useStateContext();
     const config = {
         reference: new Date().getTime().toString(),
@@ -127,3 +126,20 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+export const getServerSideProps = async ({ req }) => {
+    const session = await getSession({ req });
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/login",
+                permanent: false,
+            },
+        };
+    }
+    return {
+        props: {
+            session,
+        },
+    };
+};

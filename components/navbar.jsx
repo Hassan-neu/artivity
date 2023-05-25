@@ -26,10 +26,8 @@ const Navbar = () => {
                 <Link href="/user">
                     <FaRegUser size={30} />
                 </Link>
-                <ProfileMenu
-                    className={`mobile_menu ${open ? "active" : ""}`}
-                />
             </div>
+            <ProfileMenu className={`mobile_menu ${open ? "active" : ""}`} />
             <div className="nav-gallery">
                 <Link href="/gallery">
                     <TfiGallery size={30} />
