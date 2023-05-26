@@ -1176,6 +1176,17 @@ div[data-mode="invalid"] p {
     .artwrk-total {
         align-self: flex-end;
     }
+    .cart-optn > button {
+        padding: 0;
+    }
+    .cart-rmv svg {
+        width: 20px;
+        height: 20px;
+    }
+    .cart-ctrl {
+        gap: 0.5rem;
+        padding: 0.5em;
+    }
     .subtotal-head,
     .checkout-dets {
         display: none;
