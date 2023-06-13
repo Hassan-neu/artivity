@@ -1049,7 +1049,8 @@ div[data-mode="invalid"] p {
             .artwrk_container,
             .cart_wrapper,
             .wishlist_container,
-            .profile_container .login_container,
+            .profile_container,
+            .login_container,
             .register_container,
             .checkout_container
         ) {
