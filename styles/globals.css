@@ -1053,7 +1053,7 @@ div[data-mode="invalid"] p {
             .register_container,
             .checkout_container
         ) {
-        padding: 0 2em;
+        padding: 0 2rem;
     }
     .navbar {
         padding: 1.5rem;
@@ -1230,7 +1230,7 @@ div[data-mode="invalid"] p {
             .login_container,
             .register_container
         ) {
-        padding: 0 3em;
+        padding: 0 3rem;
     }
     .mobile_ham {
         display: block;
