@@ -171,8 +171,8 @@ button:active {
     border-radius: 3px;
     border: 1px solid var(--primaryColor);
     width: 100%;
-    padding: 0 0.23em;
 }
+
 div[data-mode="invalid"] {
     border: 1px solid #ff0000 !important;
     box-shadow: 0 0 2px #ff0000;
@@ -193,6 +193,7 @@ div[data-mode="invalid"] p {
 :is(.login-form, .register-form) span {
     color: var(--secondaryColor);
     display: flex;
+    padding: 0.23em;
 }
 :is(.login-form, .register-form) span:hover {
     color: var(--primaryColor);

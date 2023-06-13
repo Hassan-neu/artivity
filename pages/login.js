@@ -4,7 +4,6 @@ import {
     AiOutlineGoogle,
     AiOutlineEye,
     AiOutlineEyeInvisible,
-    AiFillFacebook,
 } from "react-icons/ai";
 import { signIn } from "next-auth/react";
 import Head from "next/head";
@@ -32,7 +31,10 @@ const Login = () => {
         data.status && router.push(data.url);
     }
     const handleSignIn = async (provider) => {
-        signIn(provider, { callbackUrl: "http://localhost:3000" });
+        signIn(provider, {
+            callbackUrl:
+                "https://artivity.vercel.app" ?? "http://localhost:3000",
+        });
     };
     const [showPassword, setShowPassword] = useState(false);
     return (

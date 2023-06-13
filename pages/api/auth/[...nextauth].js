@@ -7,6 +7,7 @@ import { compare } from "bcryptjs";
 export default NextAuth({
     session: {
         strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60,
     },
     providers: [
         GoogleProvider({
@@ -15,9 +16,10 @@ export default NextAuth({
         }),
         CredentialsProvider({
             async authorize(credentials, req) {
-                connectMongo();
+                await connectMongo();
                 const { email, password } = credentials;
                 const user = await Users.findOne({ email });
+                console.log(user);
                 if (!user) {
                     throw new Error("Email not found");
                 }

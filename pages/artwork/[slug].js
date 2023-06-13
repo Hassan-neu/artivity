@@ -11,7 +11,9 @@ import {
 } from "react-icons/ri";
 import { useStateContext } from "@/hooks/stateContext";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const ArtPage = ({ product, moreByArtiste }) => {
+    const route = useRouter();
     const {
         qty,
         incQty,
@@ -28,18 +30,19 @@ const ArtPage = ({ product, moreByArtiste }) => {
             <div className="artwrk_container">
                 <div className="artwrk-top">
                     <div className="artwrk-image">
-                        <Link
-                            href="/gallery"
+                        <span
                             style={{
                                 color: "#d06224",
                                 display: "flex",
                                 alignItems: "center",
                                 gap: ".2rem",
                                 marginBottom: ".5rem",
+                                cursor: "pointer",
                             }}
+                            onClick={() => route.back()}
                         >
                             <AiOutlineArrowLeft /> Back
-                        </Link>
+                        </span>
                         <Image
                             src={urlFor(image[0]).url()}
                             width={500}

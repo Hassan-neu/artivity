@@ -3,7 +3,7 @@ import Users from "@/models/Schema";
 import { hash } from "bcryptjs";
 async function handler(req, res) {
     if (req.method === "POST") {
-        connectMongo();
+        await connectMongo();
         if (!req.body) return res.status(204).json({ message: "No content" });
         const { firstName, lastName, email, password } = req.body;
         const checkUser = await Users.findOne({ email });

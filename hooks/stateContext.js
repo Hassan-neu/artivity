@@ -1,4 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 const Context = createContext();
 export const StateContext = ({ children }) => {
     const [qty, setQty] = useState(1);
@@ -32,7 +33,10 @@ export const StateContext = ({ children }) => {
                 setTotalPrice(
                     (prevPrice) =>
                         prevPrice - checkItem.price * (checkItem.itmQty - qty)
-                )
+                ),
+                toast("Item Added", {
+                    icon: "🛒",
+                })
             );
         }
         const itemsToAdd = { image, artiste, name, price, itmQty, id };
@@ -40,6 +44,9 @@ export const StateContext = ({ children }) => {
         setCartItems((prevCart) => [...prevCart, itemsToAdd]);
         setTotalQty((prevTotal) => prevTotal + qty);
         setTotalPrice((prevPrice) => prevPrice + itmQty * price);
+        toast("Item Added", {
+            icon: "🛒",
+        });
     };
     const toRemove = (id) => {
         const toPurge = cartItems.find((item) => item.id === id);
@@ -49,6 +56,9 @@ export const StateContext = ({ children }) => {
         setTotalPrice(
             (prevPrice) => prevPrice - toPurge.itmQty * toPurge.price
         );
+        toast("Item Removed", {
+            icon: "🗑️",
+        });
     };
     const cartQtyToggle = (id, type) => {
         const toToggle = cartItems.find((item) => item.id === id);

@@ -2,10 +2,26 @@ import React from "react";
 import CartItem from "@/components/cartItem";
 import { useStateContext } from "@/hooks/stateContext";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 const Cart = () => {
+    const route = useRouter();
     const { cartItems, totalQty, totalPrice, setTotalFee } = useStateContext();
     return (
         <div className="cart_wrapper">
+            <span
+                style={{
+                    color: "#d06224",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: ".2rem",
+                    marginBottom: ".5rem",
+                    cursor: "pointer",
+                }}
+                onClick={() => route.back()}
+            >
+                <AiOutlineArrowLeft /> Back
+            </span>
             <div className="cart_container">
                 <div className="cart-artwrks">
                     <div className="cart-count">

@@ -3,6 +3,7 @@ import ProfileMenu from "@/components/profileMenu";
 import Image from "next/image";
 import { getSession } from "next-auth/react";
 const Profile = ({ session }) => {
+    console.log(session);
     return (
         <div className="profile_wrapper">
             <div className="profile_container">
