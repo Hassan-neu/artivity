@@ -30,7 +30,10 @@ const Cart = () => {
                     {cartItems.length < 1 && (
                         <p>
                             Your Cart is Empty... Continue{" "}
-                            <Link href={"/market"} style={{ color: "#d06224" }}>
+                            <Link
+                                href={"/gallery"}
+                                style={{ color: "#d06224" }}
+                            >
                                 Shopping
                             </Link>
                         </p>

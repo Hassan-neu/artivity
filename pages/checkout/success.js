@@ -4,10 +4,11 @@ import { runConfetti } from "@/libs/confetti";
 import { BsBagCheckFill } from "react-icons/bs";
 import { useStateContext } from "@/hooks/stateContext";
 const SuccessPage = () => {
-    const { setTotalQty, setCartItems, setTotalPrice, setTotalFee } =
+    const { setTotalQty, setCartItems, setTotalPrice, setTotalFee, setQty } =
         useStateContext();
     useEffect(() => {
         runConfetti();
+        setQty(1);
         setTotalFee(0);
         setTotalQty(0);
         setCartItems([]);
