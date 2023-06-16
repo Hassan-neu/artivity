@@ -122,7 +122,7 @@ const Login = () => {
                             </form>
                             <div className="to-optn">
                                 <p>
-                                    Not Account Yet? {""}
+                                    No Account Yet? {""}
                                     <Link
                                         style={{ color: "#d06224" }}
                                         href="/register"
