@@ -13,7 +13,7 @@ import { useStateContext } from "@/hooks/stateContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 const ArtPage = ({ product, moreByArtiste }) => {
-    const route = useRouter();
+    const router = useRouter();
     const {
         qty,
         incQty,
@@ -39,7 +39,7 @@ const ArtPage = ({ product, moreByArtiste }) => {
                                 marginBottom: ".5rem",
                                 cursor: "pointer",
                             }}
-                            onClick={() => route.back()}
+                            onClick={() => router.back()}
                         >
                             <AiOutlineArrowLeft /> Back
                         </span>

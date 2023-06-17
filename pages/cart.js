@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 const Cart = () => {
-    const route = useRouter();
+    const router = useRouter();
     const { cartItems, totalQty, totalPrice, setTotalFee } = useStateContext();
     return (
         <div className="cart_wrapper">
@@ -18,7 +18,7 @@ const Cart = () => {
                     marginBottom: ".5rem",
                     cursor: "pointer",
                 }}
-                onClick={() => route.back()}
+                onClick={() => router.back()}
             >
                 <AiOutlineArrowLeft /> Back
             </span>

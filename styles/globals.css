@@ -1176,6 +1176,7 @@ div[data-mode="invalid"] p {
         gap: 0.5rem;
     }
     .artwrk-total {
+        font-size: 1rem;
         align-self: flex-end;
     }
     .cart-optn > button {
@@ -1187,7 +1188,7 @@ div[data-mode="invalid"] p {
     }
     .cart-ctrl {
         gap: 0.5rem;
-        padding: 0.5em;
+        padding: 0.3em 0.8em;
     }
     .subtotal-head,
     .checkout-dets {
