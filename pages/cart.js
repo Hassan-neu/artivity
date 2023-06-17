@@ -60,24 +60,17 @@ const Cart = () => {
                     <div className="checkout-btn">
                         <button
                             type="button"
-                            onClick={() =>
-                                setTotalFee(totalPrice + totalPrice * 0.05)
-                            }
+                            {...(totalPrice <= 0 && { disabled: true })}
+                            onClick={() => {
+                                setTotalFee(totalPrice + totalPrice * 0.05),
+                                    router.push("/checkout");
+                            }}
                         >
-                            <Link
-                                href={"/checkout"}
-                                style={{
-                                    color: "#fff",
-                                    width: "100%",
-                                    display: "block",
-                                }}
-                            >
-                                CHECKOUT ( $
-                                {totalPrice
-                                    .toString()
-                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                                )
-                            </Link>
+                            CHECKOUT ( $
+                            {totalPrice
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            )
                         </button>
                     </div>
                 </div>
